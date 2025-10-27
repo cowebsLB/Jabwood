@@ -31,6 +31,18 @@ echo Committing changes with message: "%commit_msg%"
 git commit -m "%commit_msg%"
 
 echo.
+echo Pulling latest changes from remote...
+git pull origin main --rebase
+
+if %ERRORLEVEL% NEQ 0 (
+    echo.
+    echo Warning: Pull encountered conflicts or issues
+    echo Please resolve any conflicts and try again
+    pause
+    exit /b 1
+)
+
+echo.
 echo Pushing to main branch...
 git push origin main
 
