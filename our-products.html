@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Jabwood</title>
+    <meta name="description" content="Explore Jabwood's comprehensive range of premium wood products including hard woods, soft woods, and wood-based panels.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wood-brown': '#8B4513',
+                        'wood-light': '#D2B48C',
+                        'wood-dark': '#654321',
+                        'forest-green': '#228B22',
+                        'sage-green': '#9CAF88',
+                        'cream': '#F5F5DC'
+                    },
+                    fontFamily: {
+                        'primary': ['Rockwell', 'Georgia', 'serif'],
+                        'secondary': ['Roboto', 'Arial', 'sans-serif'],
+                        'accent': ['Rockwell', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream text-gray-800 font-secondary">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-12 w-auto">
+                    <div>
+                        <h1 class="text-xl font-bold text-wood-brown">Jabwood</h1>
+                        <p class="text-sm text-gray-600">Tripoli - Lebanon</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.home">Home</a>
+                    <a href="about-us.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.about">About Us</a>
+                    <a href="our-products.html" class="text-wood-brown hover:text-forest-green transition-colors font-medium" data-i18n="nav.products">Our Products</a>
+                    <a href="branches.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.branches">Branches</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.contact">Contact</a>
+                    
+                    <!-- Desktop Language Switch Button -->
+                    <button id="desktop-language-switch" class="bg-wood-brown text-white px-4 py-2 rounded-lg hover:bg-wood-dark transition-colors font-medium flex items-center gap-2 text-sm">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                        <span id="desktop-language-text">العربية</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-wood-brown" aria-label="Open mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Modal (Outside Header) -->
+    <div id="mobile-nav-modal" class="mobile-nav-modal">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <div class="mobile-nav-logo">
+                    <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo">
+                </div>
+                <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="mobile-nav-menu">
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="about-us.html" data-i18n="nav.about">About Us</a></li>
+                    <li><a href="our-products.html" class="active" data-i18n="nav.products">Our Products</a></li>
+                    <li><a href="branches.html" data-i18n="nav.branches">Branches</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="mobile-nav-footer">
+                <div class="mobile-nav-contact">
+                    <p><strong>Tripoli, Lebanon</strong></p>
+                    <p>50+ Years of Excellence</p>
+                </div>
+                
+                <!-- Language Switch Button -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <button id="language-switch" class="w-full bg-wood-brown text-white px-4 py-3 rounded-lg hover:bg-brown-700 transition-colors font-medium flex items-center justify-center gap-2">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                        <span id="language-text">العربية</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="bg-gradient-to-br from-wood-brown via-wood-light to-cream py-24 relative overflow-hidden">
+            <div class="absolute inset-0 opacity-10">
+                <div class="wood-grain-texture w-full h-full"></div>
+            </div>
+            <div class="container mx-auto px-4 relative z-10">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="section-subtitle text-white mb-4 fade-in">PRODUCT CATALOG</div>
+                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 fade-in font-primary" data-i18n="products.title">
+                        Our Products
+                    </h1>
+                    <div class="section-divider mb-6"></div>
+                    <p class="text-xl text-white/90 fade-in-delay max-w-2xl mx-auto" data-i18n="products.subtitle">
+                        Premium Wood Products for Every Need - From Exotic Hardwoods to Engineered Panels
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Product Categories -->
+        <section class="py-24 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    
+                    <!-- Soft Woods -->
+                    <div id="softwoods" class="mb-24 fade-in">
+                        <div class="section-header">
+                            <div class="section-subtitle">CONSTRUCTION GRADE</div>
+                            <h2 class="section-title font-primary" data-i18n="products.softwoods">Soft Woods</h2>
+                            <div class="section-divider"></div>
+                            <p class="section-description" data-i18n="products.softwoodsDesc">Quality softwoods for construction and general use</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.redwood">Redwood</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.redwoodDesc">Premium redwood known for its durability and natural beauty.</p>
+                                <a href="products/soft-woods/redwood.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.douglasFir">Douglas Fir</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.douglasFirDesc">Strong and versatile Douglas fir for structural applications.</p>
+                                <a href="products/soft-woods/douglas-fir.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.cedar">Cedar</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.cedarDesc">Aromatic cedar wood with natural resistance to insects and decay.</p>
+                                <a href="products/soft-woods/cedar.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.whitewood">White Wood</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.whitewoodDesc">Light-colored softwood with excellent workability and versatility.</p>
+                                <a href="products/soft-woods/whitewood.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hard Woods -->
+                    <div id="hardwoods" class="mb-24 fade-in-delay">
+                        <div class="section-header">
+                            <div class="section-subtitle">PREMIUM QUALITY</div>
+                            <h2 class="section-title font-primary" data-i18n="products.hardwoods">Hard Woods</h2>
+                            <div class="section-divider"></div>
+                            <p class="section-description" data-i18n="products.hardwoodsDesc">Premium hardwoods for fine furniture and high-end applications</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.oak">Oak</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.oakDesc">Classic oak wood known for its strength and beautiful grain patterns.</p>
+                                <a href="products/hard-woods/oak.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.teak">Teak</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.teakDesc">Premium teak wood renowned for its durability and weather resistance.</p>
+                                <a href="products/hard-woods/teak.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.walnut">Walnut</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.walnutDesc">Luxurious walnut wood with distinctive dark color and grain.</p>
+                                <a href="products/hard-woods/walnut.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.cherry">Cherry</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.cherryDesc">Beautiful cherry wood with rich color and smooth grain.</p>
+                                <a href="products/hard-woods/cherry.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.maple">Maple</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.mapleDesc">Hard maple wood known for its light color and fine grain.</p>
+                                <a href="products/hard-woods/maple.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.beechWood">Beech Wood</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.beechWoodDesc">Dense and durable beech wood with excellent workability.</p>
+                                <a href="products/hard-woods/beech-wood.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.ash">Ash</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.ashDesc">Flexible and shock-resistant ash wood perfect for furniture.</p>
+                                <a href="products/hard-woods/ash.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.sapele">Sapele</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.sapeleDesc">African hardwood with interlocking grain and reddish-brown color.</p>
+                                <a href="products/hard-woods/sapele.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.iroko">Iroko</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.irokoDesc">African hardwood with natural resistance to rot and insects.</p>
+                                <a href="products/hard-woods/iroko.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.ramin">Ramin</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.raminDesc">Light-colored tropical hardwood with fine texture.</p>
+                                <a href="products/hard-woods/ramin.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.meranti">Meranti</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.merantiDesc">Southeast Asian hardwood with good workability and durability.</p>
+                                <a href="products/hard-woods/meranti.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-wood-brown to-wood-dark rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M10 3.5a1.5 1.5 0 013 0V4a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-.5a1.5 1.5 0 000 3h.5a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-.5a1.5 1.5 0 00-3 0v.5a1 1 0 01-1 1H6a1 1 0 01-1-1v-3a1 1 0 00-1-1h-.5a1.5 1.5 0 010-3H4a1 1 0 001-1V6a1 1 0 011-1h3a1 1 0 001-1v-.5z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.wawa">Wawa</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.wawaDesc">Lightweight African hardwood suitable for various applications.</p>
+                                <a href="products/hard-woods/wawa.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Wood-Based Panels -->
+                    <div id="panels" class="fade-in-delay-2">
+                        <div class="section-header">
+                            <div class="section-subtitle">ENGINEERED SOLUTIONS</div>
+                            <h2 class="section-title font-primary" data-i18n="products.panels">Wood-Based Panels</h2>
+                            <div class="section-divider"></div>
+                            <p class="section-description" data-i18n="products.panelsDesc">Engineered wood products for modern construction and manufacturing</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.plywood">Plywood</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.plywoodDesc">Strong and stable plywood made from multiple wood layers.</p>
+                                <a href="products/wood-based-panels/plywood.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.mdf">MDF</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.mdfDesc">Medium Density Fiberboard - smooth surface perfect for painting and laminating.</p>
+                                <a href="products/wood-based-panels/mdf.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.chipboard">Chipboard</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.chipboardDesc">Cost-effective particle board made from wood chips and resin.</p>
+                                <a href="products/wood-based-panels/chipboard.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.blockboard">Blockboard</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.blockboardDesc">Core panel with solid wood strips between veneer faces.</p>
+                                <a href="products/wood-based-panels/blockboard.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.hardboard">Hardboard</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.hardboardDesc">Dense fiberboard with smooth surface for various applications.</p>
+                                <a href="products/wood-based-panels/hardboard.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.melaminatedFaced">Melaminated Faced Panels</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.melaminatedFacedDesc">Panels with melamine coating for durable, easy-to-clean surfaces.</p>
+                                <a href="products/wood-based-panels/melaminated-faced-panels.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                            
+                            <div class="product-card group">
+                                <div class="mb-4">
+                                    <div class="w-12 h-12 bg-gradient-to-br from-sage-green to-forest-green rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                                        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                            <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
+                                        </svg>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-wood-brown mb-2 font-primary" data-i18n="products.filmFaceShuttering">Film Face Shuttering Plywood</h3>
+                                </div>
+                                <p class="text-gray-600 mb-4 text-sm" data-i18n="products.filmFaceShutteringDesc">Specialized plywood with film coating for concrete formwork.</p>
+                                <a href="products/wood-based-panels/film-face-shuttering-plywood.html" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold text-sm group-hover:gap-3 transition-all" data-i18n="products.learnMore">
+                                    Learn More 
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Assurance -->
+        <section class="py-16 bg-wood-light">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-bold text-wood-brown mb-6" data-i18n="quality.title">Quality Assurance</h2>
+                        <p class="text-xl text-gray-700 leading-relaxed mb-8" data-i18n="quality.description">
+                            All our wood products undergo rigorous quality control to ensure they meet the highest standards. We source our materials from trusted suppliers and maintain strict quality standards throughout our supply chain.
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="bg-white rounded-lg p-6 shadow-lg">
+                                <div class="w-16 h-16 bg-forest-green rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="quality.qualityControl">Quality Control</h3>
+                                <p class="text-gray-700" data-i18n="quality.qualityControlDesc">Rigorous testing and inspection of all products</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-6 shadow-lg">
+                                <div class="w-16 h-16 bg-sage-green rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V8zm0 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1v-2z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="quality.sustainableSourcing">Sustainable Sourcing</h3>
+                                <p class="text-gray-700" data-i18n="quality.sustainableSourcingDesc">Responsibly sourced materials from certified suppliers</p>
+                            </div>
+                            
+                            <div class="bg-white rounded-lg p-6 shadow-lg">
+                                <div class="w-16 h-16 bg-wood-dark rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="quality.expertConsultation">Expert Consultation</h3>
+                                <p class="text-gray-700" data-i18n="quality.expertConsultationDesc">Professional advice for your specific needs</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-wood-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-10 w-auto">
+                            <h4 class="text-xl font-bold">Jabwood</h4>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            50+ years of excellence in premium wood products from Tripoli, Lebanon.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
+                        <ul class="space-y-2">
+                            <li><a href="about-us.html" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="our-products.html" class="text-gray-300 hover:text-white transition-colors">Our Products</a></li>
+                            <li><a href="branches.html" class="text-gray-300 hover:text-white transition-colors">Branches</a></li>
+                            <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-semibold mb-4">Contact Info</h5>
+                        <p class="text-gray-300 mb-2">Tripoli, Lebanon</p>
+                        <p class="text-gray-300">50+ Years of Excellence</p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                    <p class="text-gray-300">&copy; 2024 Jabwood. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

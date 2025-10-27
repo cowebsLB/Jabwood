@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardboard - Jabwood</title>
+    <meta name="description" content="Premium Hardboard products from Jabwood. Dense fiberboard with smooth surface for various applications.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../../css/custom.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wood-brown': '#8B4513',
+                        'wood-light': '#D2B48C',
+                        'wood-dark': '#654321',
+                        'forest-green': '#228B22',
+                        'sage-green': '#9CAF88',
+                        'cream': '#F5F5DC'
+                    },
+                    fontFamily: {
+                        'primary': ['Rockwell', 'Georgia', 'serif'],
+                        'secondary': ['Roboto', 'Arial', 'sans-serif'],
+                        'accent': ['Rockwell', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream text-gray-800 font-secondary">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="../../assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-12 w-auto">
+                    <div>
+                        <h1 class="text-xl font-bold text-wood-brown font-primary">Jabwood</h1>
+                        <p class="text-sm text-gray-600">Tripoli - Lebanon</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="../../index.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.home">Home</a>
+                    <a href="../../about-us.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.about">About Us</a>
+                    <a href="../../our-products.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.products">Our Products</a>
+                    <a href="../../branches.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.branches">Branches</a>
+                    <a href="../../contact.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.contact">Contact</a>
+                    
+                    <!-- Desktop Language Switch Button -->
+                    <button id="desktop-language-switch" class="bg-wood-brown text-white px-4 py-2 rounded-lg hover:bg-wood-dark transition-colors font-medium flex items-center gap-2 text-sm">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                        <span id="desktop-language-text">العربية</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-wood-brown" aria-label="Open mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Modal (Outside Header) -->
+    <div id="mobile-nav-modal" class="mobile-nav-modal">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <div class="mobile-nav-logo">
+                    <img src="../../assets/images/general/hdr-logo.jpg" alt="Jabwood Logo">
+                </div>
+                <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="mobile-nav-menu">
+                <ul>
+                    <li><a href="../../index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="../../about-us.html" data-i18n="nav.about">About Us</a></li>
+                    <li><a href="../../our-products.html" data-i18n="nav.products">Our Products</a></li>
+                    <li><a href="../../branches.html" data-i18n="nav.branches">Branches</a></li>
+                    <li><a href="../../contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="mobile-nav-footer">
+                <div class="mobile-nav-contact">
+                    <p><strong>Tripoli, Lebanon</strong></p>
+                    <p>50+ Years of Excellence</p>
+                </div>
+                
+                <!-- Language Switch Button -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <button id="language-switch" class="w-full bg-wood-brown text-white px-4 py-3 rounded-lg hover:bg-brown-700 transition-colors font-medium flex items-center justify-center gap-2">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                        <span id="language-text">العربية</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="py-16">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <!-- Breadcrumb -->
+                <nav class="mb-8">
+                    <ol class="flex items-center space-x-2 text-sm text-gray-600">
+                        <li><a href="../../index.html" class="hover:text-forest-green transition-colors" data-i18n="nav.home">Home</a></li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <a href="../../our-products.html" class="hover:text-forest-green transition-colors" data-i18n="nav.products">Our Products</a>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span data-i18n="products.panels">Wood-Based Panels</span>
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mx-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path>
+                            </svg>
+                            <span data-i18n="products.hardboard">Hardboard</span>
+                        </li>
+                    </ol>
+                </nav>
+
+                <!-- Product Header -->
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <div class="fade-in">
+                        <img src="../../assets/images/products/panels/HARDBOARDS.jpg" alt="Hardboard" class="w-full h-96 object-cover rounded-lg shadow-lg">
+                    </div>
+                    <div class="fade-in-delay">
+                        <h1 class="text-4xl font-bold text-wood-brown mb-4 font-primary" data-i18n="products.hardboard">Hardboard</h1>
+                        <p class="text-xl text-gray-700 mb-6" data-i18n="products.hardboardDesc">Dense fiberboard with smooth surface for various applications.</p>
+                        
+                        <div class="space-y-4 mb-8">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-forest-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700" data-i18n="products.dense">Dense</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-forest-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700" data-i18n="products.smoothSurface">Smooth surface</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-forest-green mr-3" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                                </svg>
+                                <span class="text-gray-700" data-i18n="products.versatile">Versatile</span>
+                            </div>
+                        </div>
+                        
+                        <div class="bg-wood-light rounded-lg p-6">
+                            <h3 class="text-lg font-bold text-wood-brown mb-3" data-i18n="products.applications">Applications</h3>
+                            <ul class="space-y-2 text-gray-700">
+                                <li data-i18n="products.furniture">• Furniture backing</li>
+                                <li data-i18n="products.cabinetry">• Cabinetry and millwork</li>
+                                <li data-i18n="products.construction">• Construction and building</li>
+                                <li data-i18n="products.artwork">• Artwork and displays</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-bold text-wood-brown mb-6 font-primary" data-i18n="products.characteristics">Characteristics</h2>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="products.construction">Construction</h3>
+                                <p class="text-gray-700" data-i18n="products.hardboardConstruction">Wood fibers compressed under high pressure</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="products.density">Density</h3>
+                                <p class="text-gray-700" data-i18n="products.hardboardDensity">High density fiberboard</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="products.thickness">Thickness</h3>
+                                <p class="text-gray-700" data-i18n="products.hardboardThickness">Available in various thicknesses from 3mm to 12mm</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="fade-in-delay">
+                        <h2 class="text-3xl font-bold text-wood-brown mb-6 font-primary" data-i18n="products.advantages">Advantages</h2>
+                        <div class="space-y-4">
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="products.smoothSurface">Smooth Surface</h3>
+                                <p class="text-gray-700" data-i18n="products.hardboardSmoothSurface">Excellent for painting and finishing</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="products.workability">Workability</h3>
+                                <p class="text-gray-700" data-i18n="products.hardboardWorkability">Easy to cut and shape</p>
+                            </div>
+                            <div class="bg-white rounded-lg p-6 shadow-md">
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="products.costEffective">Cost Effective</h3>
+                                <p class="text-gray-700" data-i18n="products.hardboardCostEffective">Affordable alternative to solid wood</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Call to Action -->
+                <div class="text-center bg-forest-green text-white rounded-lg p-8 fade-in">
+                    <h2 class="text-3xl font-bold mb-4" data-i18n="products.contactUs">Contact Us for Hardboard</h2>
+                    <p class="text-xl mb-6" data-i18n="products.contactDesc">Ready to discuss your Hardboard requirements? Contact our team for expert advice and competitive pricing.</p>
+                    <a href="../../contact.html" class="bg-white text-forest-green px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors inline-block" data-i18n="products.getInTouch">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-wood-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <img src="../../assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-10 w-auto">
+                            <h4 class="text-xl font-bold font-primary">Jabwood</h4>
+                        </div>
+                        <p class="text-gray-300 mb-4" data-i18n="footer.tagline">
+                            50+ years of excellence in premium wood products from Tripoli, Lebanon.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-bold mb-4" data-i18n="footer.quickLinks">Quick Links</h5>
+                        <ul class="space-y-2">
+                            <li><a href="../../about-us.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="nav.about">About Us</a></li>
+                            <li><a href="../../our-products.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="nav.products">Our Products</a></li>
+                            <li><a href="../../branches.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="nav.branches">Branches</a></li>
+                            <li><a href="../../contact.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="nav.contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-bold mb-4" data-i18n="footer.contactInfo">Contact Info</h5>
+                        <p class="text-gray-300 mb-2">Tripoli, Lebanon</p>
+                        <p class="text-gray-300" data-i18n="footer.excellence">50+ Years of Excellence</p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                    <p class="text-gray-300" data-i18n="footer.rights">© 2024 Jabwood. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../../js/i18n.js"></script>
+    <script src="../../js/main.js"></script>
+</body>
+</html>

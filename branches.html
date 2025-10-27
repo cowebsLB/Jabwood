@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Branches - Jabwood</title>
+    <meta name="description" content="Find Jabwood branches and locations across Lebanon, Jordan, and Saudi Arabia. Contact information and branch details.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'wood-brown': '#8B4513',
+                        'wood-light': '#D2B48C',
+                        'wood-dark': '#654321',
+                        'forest-green': '#228B22',
+                        'sage-green': '#9CAF88',
+                        'cream': '#F5F5DC'
+                    },
+                    fontFamily: {
+                        'primary': ['Rockwell', 'Georgia', 'serif'],
+                        'secondary': ['Roboto', 'Arial', 'sans-serif'],
+                        'accent': ['Rockwell', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-cream text-gray-800 font-secondary">
+    <!-- Header -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <!-- Logo -->
+                <div class="flex items-center space-x-3">
+                    <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-12 w-auto">
+                    <div>
+                        <h1 class="text-xl font-bold text-wood-brown">Jabwood</h1>
+                        <p class="text-sm text-gray-600">Tripoli - Lebanon</p>
+                    </div>
+                </div>
+                
+                <!-- Desktop Navigation -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.home">Home</a>
+                    <a href="about-us.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.about">About Us</a>
+                    <a href="our-products.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.products">Our Products</a>
+                    <a href="branches.html" class="text-wood-brown hover:text-forest-green transition-colors font-medium" data-i18n="nav.branches">Branches</a>
+                    <a href="contact.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.contact">Contact</a>
+                    
+                    <!-- Desktop Language Switch Button -->
+                    <button id="desktop-language-switch" class="bg-wood-brown text-white px-4 py-2 rounded-lg hover:bg-wood-dark transition-colors font-medium flex items-center gap-2 text-sm">
+                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                        <span id="desktop-language-text">العربية</span>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-wood-brown" aria-label="Open mobile menu">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            
+        </nav>
+    </header>
+
+    <!-- Mobile Navigation Modal (Outside Header) -->
+    <div id="mobile-nav-modal" class="mobile-nav-modal">
+        <div class="mobile-nav-content">
+            <div class="mobile-nav-header">
+                <div class="mobile-nav-logo">
+                    <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo">
+                </div>
+                <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="mobile-nav-menu">
+                <ul>
+                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+                    <li><a href="about-us.html" data-i18n="nav.about">About Us</a></li>
+                    <li><a href="our-products.html" data-i18n="nav.products">Our Products</a></li>
+                    <li><a href="branches.html" class="active" data-i18n="nav.branches">Branches</a></li>
+                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="mobile-nav-footer">
+                <div class="mobile-nav-contact">
+                    <p><strong>Tripoli, Lebanon</strong></p>
+                    <p>50+ Years of Excellence</p>
+                </div>
+                
+                <!-- Language Switch Button -->
+                <div class="mt-6 pt-6 border-t border-gray-200">
+                    <button id="language-switch" class="w-full bg-wood-brown text-white px-4 py-3 rounded-lg hover:bg-brown-700 transition-colors font-medium flex items-center justify-center gap-2">
+                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                        </svg>
+                        <span id="language-text">العربية</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Page Header -->
+        <section class="bg-gradient-to-r from-wood-light to-cream py-16">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <h1 class="text-4xl md:text-5xl font-bold text-wood-brown mb-6 fade-in" data-i18n="branches.title">
+                        Our Branches
+                    </h1>
+                    <p class="text-xl text-gray-700 fade-in-delay" data-i18n="branches.subtitle">
+                        Serving Lebanon, Jordan, and Saudi Arabia
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Branch Information -->
+        <section class="py-16 bg-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    
+                    <!-- Headquarters -->
+                    <div class="mb-16 fade-in">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold text-wood-brown mb-4" data-i18n="branches.headquarters">Headquarters</h2>
+                            <p class="text-lg text-gray-700" data-i18n="branches.lebanon">Tripoli, Lebanon</p>
+                        </div>
+                        
+                        <div class="bg-cream rounded-lg p-8 mb-8">
+                            <div class="grid md:grid-cols-2 gap-8 items-center">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-wood-brown mb-4" data-i18n="branches.tripoliHeadquarters">Tripoli Headquarters</h3>
+                                    <p class="text-lg text-gray-700 mb-6 leading-relaxed" data-i18n="branches.tripoliDesc">
+                                        Our activity spreads over Lebanon, Jordan and Saudi Arabia where we try our best to give the most exclusive service to our customers. Directly or through our main partners, our follow up starts from the cutting at sawmill to the yard of end users.
+                                    </p>
+                                    <p class="text-lg text-gray-700 mb-6 leading-relaxed" data-i18n="branches.tripoliLocation">
+                                        Our head quarter is located in Tripoli / Lebanon serving our wood imports, transportations and distribution into our home markets.
+                                    </p>
+                                </div>
+                                <div class="text-center">
+                                    <div class="bg-white rounded-lg p-6 shadow-lg">
+                                        <h4 class="text-xl font-bold text-wood-brown mb-4" data-i18n="branches.contactInformation">Contact Information</h4>
+                                        <div class="space-y-3">
+                                            <p class="text-gray-700">
+                                                <strong>Tel:</strong> +961 6 442960/1
+                                            </p>
+                                            <p class="text-gray-700">
+                                                <strong>Fax:</strong> +961 6 442962
+                                            </p>
+                                            <p class="text-gray-700">
+                                                <strong>Email:</strong> 
+                                                <a href="mailto:jabwood@jabwood.com" class="text-forest-green hover:text-green-700 transition-colors">
+                                                    jabwood@jabwood.com
+                                                </a>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Areas -->
+                    <div class="mb-16 fade-in-delay">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold text-wood-brown mb-4" data-i18n="branches.serviceAreas">Service Areas</h2>
+                            <p class="text-lg text-gray-700" data-i18n="branches.serviceAreasDesc">We serve customers across multiple countries</p>
+                        </div>
+                        
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="bg-cream rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+                                <div class="w-16 h-16 bg-forest-green rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="branches.lebanon">Lebanon</h3>
+                                <p class="text-gray-700" data-i18n="branches.lebanonDesc">Our home market with headquarters in Tripoli</p>
+                            </div>
+                            
+                            <div class="bg-cream rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+                                <div class="w-16 h-16 bg-sage-green rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="branches.jordan">Jordan</h3>
+                                <p class="text-gray-700" data-i18n="branches.jordanDesc">Serving customers through our partners</p>
+                            </div>
+                            
+                            <div class="bg-cream rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
+                                <div class="w-16 h-16 bg-wood-dark rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"></path>
+                                    </svg>
+                                </div>
+                                <h3 class="text-xl font-bold text-wood-brown mb-3" data-i18n="branches.saudiArabia">Saudi Arabia</h3>
+                                <p class="text-gray-700" data-i18n="branches.saudiArabiaDesc">Expanding our reach across the region</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Service Commitment -->
+                    <div class="fade-in-delay-2">
+                        <div class="text-center mb-12">
+                            <h2 class="text-3xl font-bold text-wood-brown mb-4" data-i18n="branches.serviceCommitment">Our Service Commitment</h2>
+                            <p class="text-lg text-gray-700" data-i18n="branches.serviceCommitmentSubtitle">From sawmill to your yard</p>
+                        </div>
+                        
+                        <div class="bg-wood-light rounded-lg p-8">
+                            <div class="max-w-4xl mx-auto text-center">
+                                <p class="text-xl text-gray-700 leading-relaxed mb-6" data-i18n="branches.serviceCommitmentDesc">
+                                    We provide comprehensive service coverage from the initial cutting at the sawmill all the way to delivery at your yard. Our commitment to quality and customer satisfaction ensures that every step of the process meets our high standards.
+                                </p>
+                                <div class="grid md:grid-cols-2 gap-8 mt-8">
+                                    <div class="bg-white rounded-lg p-6">
+                                        <h3 class="text-xl font-bold text-wood-brown mb-4" data-i18n="branches.qualityControl">Quality Control</h3>
+                                        <p class="text-gray-700" data-i18n="branches.qualityControlDesc">Rigorous inspection at every stage of production and delivery</p>
+                                    </div>
+                                    <div class="bg-white rounded-lg p-6">
+                                        <h3 class="text-xl font-bold text-wood-brown mb-4" data-i18n="branches.reliableDelivery">Reliable Delivery</h3>
+                                        <p class="text-gray-700" data-i18n="branches.reliableDeliveryDesc">Timely and secure transportation to your location</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="py-16 bg-wood-dark text-white">
+            <div class="container mx-auto px-4">
+                <div class="max-w-4xl mx-auto text-center">
+                    <div class="fade-in">
+                        <h2 class="text-3xl font-bold mb-6" data-i18n="branches.getInTouch">Get in Touch</h2>
+                        <p class="text-xl mb-8" data-i18n="branches.getInTouchDesc">
+                            Ready to discuss your wood requirements? Contact our team for expert advice and competitive pricing.
+                        </p>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                                <h3 class="text-xl font-bold mb-4" data-i18n="branches.phone">Phone</h3>
+                                <p class="text-lg">+961 6 442960/1</p>
+                            </div>
+                            <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                                <h3 class="text-xl font-bold mb-4" data-i18n="branches.email">Email</h3>
+                                <p class="text-lg">
+                                    <a href="mailto:jabwood@jabwood.com" class="text-wood-light hover:text-white transition-colors">
+                                        jabwood@jabwood.com
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="bg-white bg-opacity-10 rounded-lg p-6">
+                                <h3 class="text-xl font-bold mb-4" data-i18n="branches.location">Location</h3>
+                                <p class="text-lg">Tripoli, Lebanon</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-wood-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="max-w-6xl mx-auto">
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-10 w-auto">
+                            <h4 class="text-xl font-bold">Jabwood</h4>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            50+ years of excellence in premium wood products from Tripoli, Lebanon.
+                        </p>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
+                        <ul class="space-y-2">
+                            <li><a href="about-us.html" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
+                            <li><a href="our-products.html" class="text-gray-300 hover:text-white transition-colors">Our Products</a></li>
+                            <li><a href="branches.html" class="text-gray-300 hover:text-white transition-colors">Branches</a></li>
+                            <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h5 class="text-lg font-semibold mb-4">Contact Info</h5>
+                        <p class="text-gray-300 mb-2">Tripoli, Lebanon</p>
+                        <p class="text-gray-300">50+ Years of Excellence</p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-600 mt-8 pt-8 text-center">
+                    <p class="text-gray-300">&copy; 2024 Jabwood. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
