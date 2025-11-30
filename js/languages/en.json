@@ -21,7 +21,9 @@
     "products": "Product Varieties"
   },
   "products": {
-    "title": "Our Products",
+    "title": "Our",
+    "titleEmphasis": "Products",
+    "catalog": "PRODUCT CATALOG",
     "subtitle": "Premium wood products for every need",
     "hardwoods": "Hard Woods",
     "hardwoodsDesc": "Premium hardwoods including Oak, Teak, Walnut, and more exotic species",
@@ -342,7 +344,9 @@
     "expertConsultationDesc": "Professional advice for your specific needs"
   },
   "about": {
-    "title": "About Jabwood",
+    "title": "About",
+    "titleEmphasis": "Jabwood",
+    "est": "EST. 1930s",
     "subtitle": "Your Trusted Partner in Premium Wood Products",
     "history": "Our History",
     "mission": "Our Mission",
@@ -361,7 +365,9 @@
     "globalOpsDept": "Today, our Jabwood international department has the"
   },
   "branches": {
-    "title": "Our Branches",
+    "title": "Our",
+    "titleEmphasis": "Branches",
+    "locations": "OUR LOCATIONS",
     "subtitle": "Serving Lebanon, Jordan, and Saudi Arabia",
     "headquarters": "Headquarters",
     "tripoliHeadquarters": "Tripoli Headquarters",
@@ -390,7 +396,9 @@
     "location": "Location"
   },
   "contact": {
-    "title": "Contact Us",
+    "title": "Contact",
+    "titleEmphasis": "Us",
+    "getInTouch": "GET IN TOUCH",
     "subtitle": "Get in touch with our team",
     "phone": "Phone",
     "email": "Email",

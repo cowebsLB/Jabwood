@@ -211,10 +211,12 @@ function debounce(func, wait) {
 // Add scroll-based header background change
 const debouncedScrollHandler = debounce(function() {
     const header = document.querySelector('header');
-    if (window.scrollY > 100) {
-        header.classList.add('bg-opacity-95', 'backdrop-blur-sm');
-    } else {
-        header.classList.remove('bg-opacity-95', 'backdrop-blur-sm');
+    if (header) {
+        if (window.scrollY > 100) {
+            header.classList.add('bg-opacity-95', 'backdrop-blur-sm');
+        } else {
+            header.classList.remove('bg-opacity-95', 'backdrop-blur-sm');
+        }
     }
 }, 10);
 
@@ -348,22 +350,28 @@ window.addEventListener('load', () => {
             document.querySelectorAll('.hero-sticky .reveal-text').forEach(el => {
                 el.classList.add('is-visible');
             });
+            // Stats and CTA are now visible by default, but ensure they're shown
             const heroCta = document.getElementById('hero-cta');
             if (heroCta) {
-                heroCta.classList.remove('opacity-0', 'translate-y-10');
+                heroCta.style.opacity = '1';
+                heroCta.style.transform = 'translateY(0)';
             }
             const heroStats = document.getElementById('hero-stats');
             if (heroStats) {
-                heroStats.classList.remove('opacity-0', 'translate-y-10');
-                heroStats.classList.add('opacity-100');
+                heroStats.style.opacity = '1';
+                heroStats.style.transform = 'translateY(0)';
             }
         }, 800);
         
     }, 1800);
 });
 
-// 2. CUSTOM CURSOR
+// 2. CUSTOM CURSOR (Desktop only)
 document.addEventListener('DOMContentLoaded', () => {
+    // Only enable custom cursor on non-touch devices
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    if (isTouchDevice) return;
+    
     const cursorDot = document.getElementById('cursor-dot');
     const cursorOutline = document.getElementById('cursor-outline');
     
@@ -373,14 +381,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const posX = e.clientX;
         const posY = e.clientY;
         
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
+        // Use transform for better performance and to work with CSS centering
+        cursorDot.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
         
-        // Outline follows with slight delay (animation handled by CSS transition)
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
+        // Outline follows with slight delay (handled by CSS transition)
+        cursorOutline.style.transform = `translate(${posX}px, ${posY}px) translate(-50%, -50%)`;
     });
     
     // Hover Interactions
@@ -439,18 +444,32 @@ window.addEventListener('scroll', () => {
         if (scrollY > 50) {
             navbar.classList.add('scrolled');
             navbar.querySelectorAll('.nav-link').forEach(el => {
+                // Exclude mobile menu button from color changes
+                if (el.id === 'mobile-menu-btn') return;
+                
                 // Only change color if mobile menu is NOT open
                 const mobileMenu = document.getElementById('mobile-menu');
                 if (!mobileMenu || !mobileMenu.classList.contains('translate-x-0')) {
-                    el.classList.remove('text-white', 'text-white/80');
-                    el.classList.add('text-stone-900', 'text-stone-600');
+                    // Remove all white variants and stone variants, then add dark
+                    el.classList.remove('text-white', 'text-white/80', 'text-stone-600');
+                    el.classList.add('text-stone-900');
                 }
             });
         } else {
             navbar.classList.remove('scrolled');
             navbar.querySelectorAll('.nav-link').forEach(el => {
-                el.classList.add('text-white', 'text-white/80');
-                el.classList.remove('text-stone-900', 'text-stone-600');
+                // Exclude mobile menu button from color changes
+                if (el.id === 'mobile-menu-btn') return;
+                
+                // Remove all stone variants and white variants, then restore original
+                // Logo has text-white, nav links have text-white/80
+                const isLogo = el.textContent.trim() === 'Jabwood.';
+                el.classList.remove('text-stone-900', 'text-stone-600', 'text-white', 'text-white/80');
+                if (isLogo) {
+                    el.classList.add('text-white');
+                } else {
+                    el.classList.add('text-white/80');
+                }
             });
         }
     }
@@ -519,15 +538,25 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // 6. LANGUAGE SWITCH BUTTONS (Fallback - i18n.js handles this primarily)
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     const desktopLangBtn = document.getElementById('desktop-language-switch');
     const mobileLangBtn = document.getElementById('language-switch');
+    
+    // Wait for i18n system to initialize if it exists
+    if (window.i18n && window.i18n.initPromise) {
+        try {
+            await window.i18n.initPromise;
+        } catch (e) {
+            console.warn('i18n initialization failed:', e);
+        }
+    }
     
     // If i18n.js handles this, these will be overridden, but we provide fallback
     const toggleLanguage = () => {
         const currentLang = document.documentElement.lang || 'en';
         const newLang = currentLang === 'en' ? 'ar' : 'en';
         document.documentElement.lang = newLang;
+        document.documentElement.setAttribute('dir', newLang === 'ar' ? 'rtl' : 'ltr');
         
         // Update button text
         const langText = newLang === 'ar' ? 'English' : 'العربية';
@@ -539,14 +568,30 @@ document.addEventListener('DOMContentLoaded', () => {
             const textSpan = mobileLangBtn.querySelector('#language-text');
             if (textSpan) textSpan.textContent = langText;
         }
+        
+        // Apply translations if i18n system exists
+        if (window.i18n && typeof window.i18n.applyLanguage === 'function') {
+            window.i18n.currentLanguage = newLang;
+            localStorage.setItem('language', newLang);
+            window.i18n.applyLanguage();
+        }
     };
     
     // Only add listeners if i18n.js hasn't already set them up
-    // The i18n.js will override these, so this is just a fallback
-    if (desktopLangBtn && !desktopLangBtn.hasAttribute('data-i18n-bound')) {
+    // Check if i18n system exists and has already bound listeners
+    const i18nSystemExists = window.i18n && window.i18n.initialized;
+    
+    // Check each button individually to ensure both get fallback listeners if needed
+    const desktopBound = desktopLangBtn && desktopLangBtn.hasAttribute('data-i18n-bound');
+    const mobileBound = mobileLangBtn && mobileLangBtn.hasAttribute('data-i18n-bound');
+    
+    // Only add fallback listeners if i18n.js hasn't handled it for each specific button
+    if (desktopLangBtn && !desktopBound && !i18nSystemExists) {
         desktopLangBtn.addEventListener('click', toggleLanguage);
+        desktopLangBtn.setAttribute('data-i18n-bound', 'true');
     }
-    if (mobileLangBtn && !mobileLangBtn.hasAttribute('data-i18n-bound')) {
+    if (mobileLangBtn && !mobileBound && !i18nSystemExists) {
         mobileLangBtn.addEventListener('click', toggleLanguage);
+        mobileLangBtn.setAttribute('data-i18n-bound', 'true');
     }
 });

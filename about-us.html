@@ -12,13 +12,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
     <link rel="manifest" href="assets/icons/site.webmanifest">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
@@ -29,134 +31,131 @@
             theme: {
                 extend: {
                     colors: {
-                        'wood-brown': '#8B4513',
-                        'wood-light': '#D2B48C',
-                        'wood-dark': '#654321',
-                        'forest-green': '#228B22',
-                        'sage-green': '#9CAF88',
-                        'cream': '#F5F5DC'
+                        wood: {
+                            900: '#1a0f0a',
+                            800: '#2c1810',
+                            500: '#c68e17', 
+                            100: '#f5ebe0',
+                        },
+                        stone: {
+                            50: '#f9f9f9',
+                            900: '#0c0c0c',
+                        }
                     },
                     fontFamily: {
-                        'primary': ['Rockwell', 'Georgia', 'serif'],
-                        'secondary': ['Roboto', 'Arial', 'sans-serif'],
-                        'accent': ['Rockwell', 'Georgia', 'serif']
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    cursor: {
+                        'none': 'none',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-cream text-gray-800 font-secondary">
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-3">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-12 w-auto">
-                    <div>
-                        <h1 class="text-xl font-bold text-wood-brown">Jabwood</h1>
-                        <p class="text-sm text-gray-600">Tripoli - Lebanon</p>
-                    </div>
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.home">Home</a>
-                    <a href="about-us.html" class="text-wood-brown hover:text-forest-green transition-colors font-medium" data-i18n="nav.about">About Us</a>
-                    <a href="our-products.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.products">Our Products</a>
-                    <a href="branches.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.branches">Branches</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.contact">Contact</a>
+<body>
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <!-- Curtain Loader -->
+    <div class="loader-text" id="loader-text">
+        <span class="block overflow-hidden">
+            <span class="block translate-y-full transition-transform duration-700 delay-100" id="loader-word">About Us</span>
+        </span>
+    </div>
+    <div class="curtain-panel curtain-left"></div>
+    <div class="curtain-panel curtain-right"></div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-glass transition-all duration-500 py-3 px-6 flex justify-between items-center" id="navbar">
+        <a href="index.html" class="text-xl font-serif font-bold text-white nav-link relative z-50 hover-trigger" data-cursor="magnetic" translate="no">Jabwood.</a>
+        
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="index.html" class="text-sm font-medium text-white/80 hover:text-wood-500 transition-colors nav-link hover-trigger" data-i18n="nav.home">Home</a>
+            <a href="about-us.html" class="text-sm font-medium text-white/80 hover:text-wood-500 transition-colors nav-link hover-trigger" data-i18n="nav.about">Story</a>
+            <a href="our-products.html" class="text-sm font-medium text-white/80 hover:text-wood-500 transition-colors nav-link hover-trigger" data-i18n="nav.products">Products</a>
+            <a href="contact.html" class="text-sm font-medium text-white/80 hover:text-wood-500 transition-colors nav-link hover-trigger" data-i18n="nav.contact">Contact</a>
                     
-                    <!-- Desktop Language Switch Button -->
-                    <button id="desktop-language-switch" class="bg-wood-brown text-white px-4 py-2 rounded-lg hover:bg-wood-dark transition-colors font-medium flex items-center gap-2 text-sm">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                        </svg>
-                        <span id="desktop-language-text">العربية</span>
-                    </button>
-                </div>
+            <!-- Desktop Language Switch Button -->
+            <button id="desktop-language-switch" class="bg-wood-500 text-stone-900 px-4 py-2 rounded-lg hover:bg-wood-600 transition-colors font-medium flex items-center gap-2 text-sm hover-trigger">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                </svg>
+                <span id="desktop-language-text">العربية</span>
+            </button>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden text-white nav-link hover-trigger relative z-50" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg id="hamburger-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" class="transition-opacity duration-300" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="close-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" class="absolute top-0 left-0 opacity-0 transition-opacity duration-300" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+    </nav>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-stone-900/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-700 cubic-bezier(0.77, 0, 0.175, 1) flex flex-col justify-center items-center" style="-webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);">
+        <div class="flex flex-col gap-8 text-center">
+            <a href="index.html" class="mobile-link text-5xl font-serif text-white hover:text-wood-500 transition-colors overflow-hidden block"><span class="block translate-y-full transition-transform duration-500 delay-100" data-i18n="nav.home">Home</span></a>
+            <a href="about-us.html" class="mobile-link text-5xl font-serif text-white hover:text-wood-500 transition-colors overflow-hidden block"><span class="block translate-y-full transition-transform duration-500 delay-200" data-i18n="nav.about">Our Story</span></a>
+            <a href="our-products.html" class="mobile-link text-5xl font-serif text-white hover:text-wood-500 transition-colors overflow-hidden block"><span class="block translate-y-full transition-transform duration-500 delay-300" data-i18n="nav.products">Products</span></a>
+            <a href="contact.html" class="mobile-link text-5xl font-serif text-white hover:text-wood-500 transition-colors overflow-hidden block"><span class="block translate-y-full transition-transform duration-500 delay-400" data-i18n="nav.contact">Contact</span></a>
+        </div>
                 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-wood-brown" aria-label="Open mobile menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
-                </button>
-            </div>
-            
-        </nav>
-    </header>
+        <!-- Language Switch Button -->
+        <div class="mt-8 pt-8 border-t border-white/20">
+            <button id="language-switch" class="w-full max-w-xs bg-wood-500 text-stone-900 px-6 py-3 rounded-lg hover:bg-wood-600 transition-colors font-medium flex items-center justify-center gap-2 hover-trigger">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                </svg>
+                <span id="language-text">العربية</span>
+            </button>
+        </div>
+        
+        <div class="absolute bottom-12 text-white/30 text-sm font-sans tracking-widest uppercase" data-i18n="home.footer.tripoliLebanon">
+            Tripoli &bull; Lebanon
+        </div>
+    </div>
 
-    <!-- Mobile Navigation Modal (Outside Header) -->
-    <div id="mobile-nav-modal" class="mobile-nav-modal">
-        <div class="mobile-nav-content">
-            <div class="mobile-nav-header">
-                <div class="mobile-nav-logo">
-                    <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo">
-                </div>
-                <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
+    <!-- Hero Section -->
+    <div id="hero-section" class="hero-sticky flex items-center justify-center relative overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/images/general/hero-background.jpg" 
+                 class="w-full h-full object-cover brightness-50" 
+                 alt="Wood Workshop"
+                 id="hero-bg">
+        </div>
+
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto w-full">
+            <div class="mb-4 reveal-text">
+                <span class="text-wood-500 uppercase tracking-[0.4em] text-sm font-semibold" data-i18n="about.est">EST. 1930s</span>
             </div>
-            
-            <div class="mobile-nav-menu">
-                <ul>
-                    <li><a href="index.html" data-i18n="nav.home">Home</a></li>
-                    <li><a href="about-us.html" class="active" data-i18n="nav.about">About Us</a></li>
-                    <li><a href="our-products.html" data-i18n="nav.products">Our Products</a></li>
-                    <li><a href="branches.html" data-i18n="nav.branches">Branches</a></li>
-                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-                </ul>
+            <div class="mb-4 reveal-text">
+                <span class="font-serif text-6xl md:text-9xl text-white leading-[0.9]">
+                    <span data-i18n="about.title">About</span> <i class="font-serif text-wood-500" translate="no">Jabwood</i>
+                </span>
             </div>
-            
-            <div class="mobile-nav-footer">
-                <div class="mobile-nav-contact">
-                    <p><strong>Tripoli, Lebanon</strong></p>
-                    <p>50+ Years of Excellence</p>
-                </div>
-                
-                <!-- Language Switch Button -->
-                <div class="mt-6 pt-6 border-t border-gray-200">
-                    <button id="language-switch" class="w-full bg-wood-brown text-white px-4 py-3 rounded-lg hover:bg-brown-700 transition-colors font-medium flex items-center justify-center gap-2">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
-                        </svg>
-                        <span id="language-text">العربية</span>
-                    </button>
-                </div>
+            <div class="mb-6 reveal-text max-w-2xl mx-auto">
+                <p class="text-white/90 text-lg md:text-xl leading-relaxed" data-i18n="about.legacyExcellence">
+                    A Legacy of Excellence Since the 1930s - From a small family lumberyard to a leading timber company in the Middle East
+                </p>
             </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+            <span class="text-xs uppercase tracking-widest" data-i18n="home.hero.scroll">Scroll</span>
         </div>
     </div>
 
     <!-- Main Content -->
-    <main>
-        <!-- Page Header -->
-        <section class="bg-gradient-to-br from-wood-brown via-wood-light to-cream py-24 relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <div class="wood-grain-texture w-full h-full"></div>
-            </div>
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="max-w-4xl mx-auto text-center">
-                    <div class="section-subtitle text-white mb-4 fade-in">EST. 1930s</div>
-                    <h1 class="text-5xl md:text-6xl font-bold text-white mb-6 fade-in font-primary">
-                        About Jabwood
-                    </h1>
-                    <div class="section-divider mb-6"></div>
-                    <p class="text-xl text-white/90 fade-in-delay max-w-2xl mx-auto" data-i18n="about.legacyExcellence">
-                        A Legacy of Excellence Since the 1930s - From a small family lumberyard to a leading timber company in the Middle East
-                    </p>
-                </div>
-            </div>
-        </section>
+    <div class="content-layer rounded-t-[3rem] overflow-hidden -mt-10 pt-20 pb-20">
+    <main class="pt-20">
 
         <!-- Company Motto -->
-        <section class="motto-section">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <p class="motto-text fade-in" data-i18n="company.motto">
+        <section class="py-16 bg-stone-50">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center">
+                    <p class="font-serif text-3xl md:text-5xl text-stone-900 italic reveal-on-scroll" data-i18n="company.motto">
                         Touch Wood, Buy Wood, From Jabwood
                     </p>
                 </div>
@@ -164,7 +163,7 @@
         </section>
 
         <!-- Company Journey Timeline -->
-        <section class="py-24 bg-white">
+        <section class="py-24 bg-stone-50">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto">
                     <div class="section-header fade-in">
@@ -244,7 +243,7 @@
         </section>
 
         <!-- Company Story Images -->
-        <section class="py-16 bg-cream">
+        <section class="py-24 bg-white">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto">
                     <div class="grid md:grid-cols-2 gap-12 items-center">
@@ -276,11 +275,11 @@
         </section>
 
         <!-- Growth Statistics -->
-        <section class="py-20 bg-gradient-to-br from-wood-dark to-wood-brown relative overflow-hidden">
+        <section class="py-24 bg-stone-900 relative overflow-hidden">
             <div class="absolute inset-0 opacity-10">
-                <div class="wood-grain-texture w-full h-full"></div>
+                <div class="grain"></div>
             </div>
-            <div class="container mx-auto px-4 relative z-10">
+            <div class="container mx-auto px-6 relative z-10">
                 <div class="max-w-6xl mx-auto">
                     <div class="text-center mb-16 fade-in">
                         <h2 class="text-4xl font-bold text-white mb-6 font-primary" data-i18n="about.ourScale">Our Scale & Reach</h2>
@@ -317,7 +316,7 @@
         </section>
 
         <!-- Global Operations -->
-        <section class="py-24 bg-white">
+        <section class="py-24 bg-stone-50">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto">
                     <div class="grid md:grid-cols-2 gap-16 items-center">
@@ -359,7 +358,7 @@
         </section>
 
         <!-- Core Values -->
-        <section class="py-24 bg-gradient-to-b from-cream to-white">
+        <section class="py-24 bg-white">
             <div class="container mx-auto px-4">
                 <div class="max-w-6xl mx-auto">
                     <div class="section-header fade-in">
@@ -416,7 +415,7 @@
         </section>
 
         <!-- Contact Information -->
-        <section class="py-16 bg-wood-dark text-white">
+        <section class="py-16 bg-stone-900 text-white">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl mx-auto">
                     <div class="text-center mb-12 fade-in">
@@ -440,41 +439,42 @@
             </div>
         </section>
     </main>
-
+        <!-- Spacer for Footer Reveal -->
+        <div class="h-[20vh] bg-stone-50"></div>
+    </div>
     <!-- Footer -->
-    <footer class="bg-wood-dark text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div>
-                        <div class="flex items-center space-x-3 mb-4">
-                            <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-10 w-auto">
-                            <h4 class="text-xl font-bold">Jabwood</h4>
-                        </div>
-                        <p class="text-gray-300 mb-4">
-                            50+ years of excellence in premium wood products from Tripoli, Lebanon.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <h5 class="text-lg font-semibold mb-4">Quick Links</h5>
-                        <ul class="space-y-2">
-                            <li><a href="about-us.html" class="text-gray-300 hover:text-white transition-colors">About Us</a></li>
-                            <li><a href="our-products.html" class="text-gray-300 hover:text-white transition-colors">Our Products</a></li>
-                            <li><a href="branches.html" class="text-gray-300 hover:text-white transition-colors">Branches</a></li>
-                            <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h5 class="text-lg font-semibold mb-4">Contact Info</h5>
-                        <p class="text-gray-300 mb-2">Tripoli, Lebanon</p>
-                        <p class="text-gray-300">50+ Years of Excellence</p>
-                    </div>
+    <footer class="footer-sticky">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-12">
+                <h2 class="text-[15vw] leading-none font-serif text-wood-500/20 select-none" translate="no">JABWOOD</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-stone-400 text-sm">
+                <div class="text-center md:text-left">
+                    <h5 class="text-white font-bold uppercase tracking-widest mb-4" data-i18n="home.footer.visitUs">Visit Us</h5>
+                    <p data-i18n="home.footer.tripoliLebanon">Tripoli, Lebanon</p>
+                    <p data-i18n="home.footer.address">Main Highway, Wood District</p>
+                    <p class="mt-2" data-i18n="home.footer.phone">+961 6 000 000</p>
                 </div>
-                
-                <div class="border-t border-gray-600 mt-8 pt-8 text-center">
-                    <p class="text-gray-300">&copy; 2024 Jabwood. All rights reserved.</p>
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="hover:text-wood-500 transition-colors hover-trigger" data-i18n="nav.home">Home</a>
+                    <a href="our-products.html" class="hover:text-wood-500 transition-colors hover-trigger" data-i18n="nav.products">Products</a>
+                    <a href="about-us.html" class="hover:text-wood-500 transition-colors hover-trigger" data-i18n="nav.about">About</a>
+                    <a href="contact.html" class="hover:text-wood-500 transition-colors hover-trigger" data-i18n="nav.contact">Contact</a>
+                </div>
+                <div class="text-center md:text-right">
+                    <p><span data-i18n="home.footer.copyright">&copy; 2025</span> <span translate="no">Jabwood.</span></p>
+                    <p data-i18n="home.footer.allRights">All Rights Reserved.</p>
+                    <div class="flex justify-center md:justify-end gap-4 mt-4">
+                        <a href="#" class="hover:text-white transition-colors hover-trigger" aria-label="Instagram">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition-colors hover-trigger" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition-colors hover-trigger" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>

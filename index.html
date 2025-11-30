@@ -110,7 +110,7 @@
                     </button>
                 </div>
         
-        <div class="absolute bottom-12 text-white/30 text-sm font-sans tracking-widest uppercase" data-i18n="footer.tripoliLebanon">
+        <div class="absolute bottom-12 text-white/30 text-sm font-sans tracking-widest uppercase" data-i18n="home.footer.tripoliLebanon">
             Tripoli &bull; Lebanon
         </div>
     </div>
@@ -122,54 +122,8 @@
                  class="w-full h-full object-cover brightness-50" 
                  alt="Wood Workshop"
                  id="hero-bg">
-    </div>
-
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto w-full">
-            <div class="mb-4 reveal-text">
-                <span class="text-wood-500 uppercase tracking-[0.4em] text-sm font-semibold" data-i18n="home.hero.subtitle">Architecture of Nature</span>
-            </div>
-            <div class="mb-4 reveal-text">
-                <span class="font-serif text-6xl md:text-9xl text-white leading-[0.9]">
-                    <span data-i18n="home.hero.title">Timeless</span><br><i class="font-serif text-wood-500" data-i18n="home.hero.titleEmphasis">Timber</i> <span data-i18n="home.hero.titleSuffix">Design</span>
-                </span>
-            </div>
-            
-            <!-- Quick Stats - Centered in middle of hero -->
-            <div class="flex justify-center items-center gap-10 md:gap-16 my-10 md:my-12 reveal-text opacity-0 translate-y-10 transition-all duration-1000 delay-300" id="hero-stats">
-                <div class="text-center px-4">
-                    <div class="text-6xl md:text-7xl lg:text-8xl font-serif text-white font-bold mb-2">50+</div>
-                    <div class="text-base md:text-lg text-white uppercase tracking-widest font-bold" data-i18n="home.hero.statsYears">Years</div>
-                </div>
-                <div class="text-center px-4">
-                    <div class="text-6xl md:text-7xl lg:text-8xl font-serif text-white font-bold mb-2">400K</div>
-                    <div class="text-base md:text-lg text-white uppercase tracking-widest font-bold" data-i18n="home.hero.statsCBM">CBM</div>
-                </div>
-                <div class="text-center px-4">
-                    <div class="text-6xl md:text-7xl lg:text-8xl font-serif text-white font-bold mb-2">3+</div>
-                    <div class="text-base md:text-lg text-white uppercase tracking-widest font-bold" data-i18n="home.hero.statsCountries">Countries</div>
-                </div>
-            </div>
-            
-            <div class="mb-6 reveal-text max-w-2xl mx-auto">
-                <p class="text-white/90 text-lg md:text-xl leading-relaxed" data-i18n="home.hero.description">
-                    Since 1930, crafting premium wood products from Tripoli, Lebanon. Your trusted partner for hardwoods, softwoods, and engineered panels across the Middle East.
-                </p>
-            </div>
-            <div class="flex justify-center gap-6 mt-6 opacity-0 translate-y-10 transition-all duration-1000 delay-700" id="hero-cta">
-                <a href="our-products.html" class="bg-wood-500 text-stone-900 px-8 py-4 rounded-full font-bold hover:bg-white transition-colors hover-trigger" data-i18n="home.hero.exploreCollection">
-                    Explore Collection
-                </a>
-                <a href="#video-reel" class="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all hover-trigger" aria-label="Watch video">
-                    <svg width="12" height="14" fill="currentColor" viewBox="0 0 12 14" aria-hidden="true"><path d="M11.5 6.134a1 1 0 010 1.732l-9 5.196A1 1 0 011 12.196V1.804a1 1 0 011.5-.866l9 5.196z"/></svg>
-                </a>
-            </div>
-                        </div>
-        
-        <!-- Scroll Down Indicator -->
-        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
-            <span class="text-xs uppercase tracking-widest" data-i18n="home.hero.scroll">Scroll</span>
         </div>
-                    </div>
+    </div>
     <!-- 2. CONTENT LAYER (Slides over hero) -->
     <div class="content-layer rounded-t-[3rem] overflow-hidden -mt-10 pt-20 pb-20">
         
@@ -202,11 +156,13 @@
         <!-- Marquee -->
         <div class="py-12 bg-wood-500 text-stone-900 border-y border-stone-900 overflow-hidden">
             <div class="marquee-container">
-                <div class="marquee-content font-serif text-5xl italic px-4">
-                    Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash; Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash;
-                </div>
-                <div class="marquee-content font-serif text-5xl italic px-4">
-                    Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash; Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash;
+                <div class="marquee-wrapper">
+                    <div class="marquee-content font-serif text-5xl italic px-4">
+                        Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash; Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash;
+                    </div>
+                    <div class="marquee-content font-serif text-5xl italic px-4" aria-hidden="true">
+                        Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash; Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash;
+                    </div>
                 </div>
             </div>
         </div>
@@ -322,7 +278,7 @@
             </div>
         </div>
     </footer>
-    
+
     <!-- JavaScript -->
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>

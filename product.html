@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Jabwood</title>
-    <meta name="description" content="Get in touch with Jabwood. Contact information for our headquarters in Tripoli, Lebanon and branches in Choueifat and Saudi Arabia.">
+    <title id="page-title">Product - Jabwood</title>
+    <meta id="page-description" name="description" content="Premium wood products from Jabwood.">
     
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
@@ -63,7 +63,7 @@
     <!-- Curtain Loader -->
     <div class="loader-text" id="loader-text">
         <span class="block overflow-hidden">
-            <span class="block translate-y-full transition-transform duration-700 delay-100" id="loader-word">Contact</span>
+            <span class="block translate-y-full transition-transform duration-700 delay-100" id="loader-word">Loading</span>
         </span>
     </div>
     <div class="curtain-panel curtain-left"></div>
@@ -121,21 +121,23 @@
         <div class="absolute inset-0 z-0">
             <img src="assets/images/general/hero-background.jpg" 
                  class="w-full h-full object-cover brightness-50" 
-                 alt="Contact Us"
+                 alt="Wood Workshop"
                  id="hero-bg">
         </div>
 
         <div class="relative z-10 text-center px-4 max-w-5xl mx-auto w-full">
             <div class="mb-4 reveal-text">
-                <span class="text-wood-500 uppercase tracking-[0.4em] text-sm font-semibold" data-i18n="contact.getInTouch">GET IN TOUCH</span>
+                <span class="text-wood-500 uppercase tracking-[0.4em] text-sm font-semibold" id="hero-subtitle">PREMIUM QUALITY</span>
             </div>
             <div class="mb-4 reveal-text">
                 <span class="font-serif text-6xl md:text-9xl text-white leading-[0.9]">
-                    <span data-i18n="contact.title">Contact</span> <i class="font-serif text-wood-500" data-i18n="contact.titleEmphasis">Us</i>
+                    <span id="hero-title">Product</span>
                 </span>
             </div>
             <div class="mb-6 reveal-text max-w-2xl mx-auto">
-                <p class="text-white/90 text-lg md:text-xl leading-relaxed" data-i18n="contact.subtitle">Get in touch with our team</p>
+                <p class="text-white/90 text-lg md:text-xl leading-relaxed" id="hero-description">
+                    Premium wood products from Jabwood
+                </p>
             </div>
         </div>
         
@@ -147,60 +149,104 @@
 
     <!-- Main Content -->
     <div class="content-layer rounded-t-[3rem] overflow-hidden -mt-10 pt-20 pb-20">
-    <main class="pt-20">
-        
-        <div class="container mx-auto px-6 py-16">
-            <div class="max-w-4xl mx-auto">
-                
-                <div class="grid md:grid-cols-2 gap-8">
-                    <!-- Headquarters -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 fade-in-delay">
-                        <h2 class="text-2xl font-bold text-wood-brown mb-4" data-i18n="contact.headquartersLocation">Headquarters - Tripoli, Lebanon</h2>
-                        <p class="text-gray-700 mb-4" data-i18n="contact.headquartersDesc">Our main office is located in Tripoli, Lebanon, serving our wood imports, transportations and distribution into our home markets:</p>
-                        <ul class="list-disc list-inside text-gray-700 mb-6 space-y-1">
-                            <li data-i18n="contact.lebanon">Lebanon</li>
-                            <li data-i18n="contact.jordan">Jordan</li>
-                            <li data-i18n="contact.saudiArabia">Saudi Arabia</li>
-                        </ul>
-                        <div class="contact-info">
-                            <p class="mb-2"><strong>Telephone:</strong> (+961 6) 442960 - 442961</p>
-                            <p class="mb-2"><strong>Fax:</strong> (+961 6) 442962</p>
-                            <p class="mb-2"><strong>Email:</strong> <a href="mailto:jabwood@jabwood.com" class="text-wood-brown hover:text-wood-dark">jabwood@jabwood.com</a></p>
+    <!-- Breadcrumb -->
+    <nav class="bg-stone-50 py-3" id="breadcrumb-nav">
+        <div class="container mx-auto px-6">
+            <div class="flex items-center space-x-2 text-sm">
+                <a href="index.html" class="text-stone-600 hover:text-wood-500 transition-colors">Home</a>
+                <span class="text-stone-400">/</span>
+                <a href="our-products.html" class="text-stone-600 hover:text-wood-500 transition-colors">Our Products</a>
+                <span class="text-stone-400">/</span>
+                <a href="our-products.html" id="breadcrumb-category" class="text-stone-600 hover:text-wood-500 transition-colors">Category</a>
+                <span class="text-stone-400">/</span>
+                <span class="text-wood-500 font-medium" id="breadcrumb-product">Product</span>
+            </div>
+        </div>
+    </nav>
+    <main class="py-16 bg-stone-50" id="product-content">
+            <div class="container mx-auto px-4">
+                <div class="max-w-6xl mx-auto">
+                    <!-- Loading State -->
+                    <div id="loading-state" class="text-center py-20">
+                        <div class="text-2xl text-stone-600">Loading product...</div>
+                    </div>
+                    
+                    <!-- Error State -->
+                    <div id="error-state" class="text-center py-20 hidden">
+                        <div class="text-2xl text-red-600 mb-4">Product not found</div>
+                        <a href="our-products.html" class="text-wood-500 hover:text-wood-600 underline">Return to Products</a>
+                    </div>
+                    
+                    <!-- Product Content (will be populated by JS) -->
+                    <div id="product-details" class="hidden">
+                    <!-- Product Header -->
+                    <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                        <div class="fade-in">
+                            <h1 class="text-4xl font-bold text-wood-500 mb-4" id="product-name">Product Name</h1>
+                            <p class="text-xl text-gray-700 mb-6" id="product-subtitle">Product subtitle</p>
+                            <div class="flex flex-wrap gap-4" id="product-badges">
+                                <!-- Badges will be inserted here -->
+                            </div>
+                        </div>
+                        <div class="fade-in-delay">
+                            <img id="product-image" src="" alt="" class="w-full h-auto rounded-lg shadow-lg">
                         </div>
                     </div>
 
-                    <!-- Branch - Choueifat -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 fade-in-delay-2">
-                        <h2 class="text-2xl font-bold text-wood-brown mb-4" data-i18n="contact.branchChoueifat">Branch - Choueifat, Lebanon</h2>
-                        <div class="contact-info">
-                            <p class="mb-2"><strong>Telephone:</strong> (+961 5) 434434 - 434000</p>
+                    <!-- Product Details -->
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <!-- Main Content -->
+                        <div class="md:col-span-2">
+                            <div class="bg-white rounded-lg shadow-lg p-8 mb-8 fade-in">
+                                <h2 class="text-2xl font-bold text-stone-900 mb-6 font-serif" id="about-title">About</h2>
+                                <div class="prose max-w-none" id="about-content">
+                                    <!-- About content will be inserted here -->
+                                </div>
+                            </div>
+
+                            <!-- Applications -->
+                            <div class="bg-white rounded-lg shadow-lg p-8 fade-in-delay" id="applications-section">
+                                <h2 class="text-2xl font-bold text-wood-500 mb-6">Common Applications</h2>
+                                <div class="grid md:grid-cols-2 gap-6" id="applications-content">
+                                    <!-- Applications will be inserted here -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sidebar -->
+                        <div class="space-y-8">
+                            <!-- Specifications -->
+                            <div class="bg-white rounded-lg shadow-lg p-6 fade-in-delay-2">
+                                <h3 class="text-xl font-bold text-wood-500 mb-4">Specifications</h3>
+                                <div class="space-y-3" id="specifications-content">
+                                    <!-- Specifications will be inserted here -->
+                                </div>
+                            </div>
+
+                            <!-- Contact CTA -->
+                            <div class="bg-wood-500 text-white rounded-lg p-6 fade-in-delay-3">
+                                <h3 class="text-xl font-bold mb-4 font-serif" id="cta-title">Interested?</h3>
+                                <p class="text-white/90 mb-4">Contact us for pricing, availability, and custom specifications.</p>
+                                <a href="contact.html" class="inline-block bg-white text-wood-500 px-6 py-3 rounded-lg hover:bg-stone-50 transition-colors font-medium hover-trigger">
+                                    Get Quote
+                                </a>
+                            </div>
+
+                            <!-- Related Products -->
+                            <div class="bg-white rounded-lg shadow-lg p-6 fade-in-delay-3" id="related-section">
+                                <h3 class="text-xl font-bold text-wood-500 mb-4">Related Products</h3>
+                                <div class="space-y-3" id="related-content">
+                                    <!-- Related products will be inserted here -->
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Branch - Saudi Arabia -->
-                    <div class="bg-white rounded-lg shadow-lg p-6 fade-in-delay-3 md:col-span-2">
-                        <h2 class="text-2xl font-bold text-wood-brown mb-4" data-i18n="contact.branchSaudi">Branch - Saudi Arabia</h2>
-                        <p class="text-gray-700 mb-4" data-i18n="contact.branchSaudiDesc">Our branch in Saudi Arabia is located in Jeddah and serves the Saudi market with a wide range of wood products.</p>
-                        <div class="contact-info">
-                            <p class="mb-2"><strong>Telephone:</strong> +966 12 6000000</p>
-                            <p class="mb-2"><strong>Fax:</strong> +966 12 6000001</p>
-                            <p class="mb-2"><strong>Email:</strong> <a href="mailto:saudi@jabwood.com" class="text-wood-brown hover:text-wood-dark">saudi@jabwood.com</a></p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Get in Touch Section -->
-                <div class="mt-12 text-center fade-in">
-                    <h3 class="text-2xl font-bold text-wood-brown mb-4" data-i18n="contact.getInTouch">Get in Touch</h3>
-                    <p class="text-lg text-gray-700 max-w-2xl mx-auto" data-i18n="contact.getInTouchDesc">
-                        For inquiries about our products, services, or to discuss your wood requirements, please don't hesitate to contact us. We're here to help with all your timber needs.
-                    </p>
                 </div>
             </div>
         </div>
     </main>
-        <!-- Spacer for Footer Reveal -->
-        <div class="h-[20vh] bg-stone-50"></div>
+    <!-- Spacer for Footer Reveal -->
+    <div class="h-[20vh] bg-stone-50"></div>
     </div>
     <!-- Footer -->
     <footer class="footer-sticky">
@@ -241,7 +287,9 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="js/product.js"></script>
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
+

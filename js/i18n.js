@@ -3,13 +3,15 @@ class I18nSystem {
     constructor() {
         this.currentLanguage = localStorage.getItem('language') || 'en';
         this.translations = {};
-        this.init();
+        this.initialized = false;
+        this.initPromise = this.init();
     }
 
     async init() {
         await this.loadTranslations();
         this.applyLanguage();
         this.setupLanguageSwitch();
+        this.initialized = true;
         
         // Multiple fallbacks to ensure translations are applied
         setTimeout(() => {
@@ -157,18 +159,25 @@ class I18nSystem {
             languageSwitch.addEventListener('click', () => {
                 this.switchLanguage();
             });
+            languageSwitch.setAttribute('data-i18n-bound', 'true');
         }
         
         if (desktopLanguageSwitch) {
             desktopLanguageSwitch.addEventListener('click', () => {
                 this.switchLanguage();
             });
+            desktopLanguageSwitch.setAttribute('data-i18n-bound', 'true');
         }
     }
 
     switchLanguage() {
         this.currentLanguage = this.currentLanguage === 'en' ? 'ar' : 'en';
         localStorage.setItem('language', this.currentLanguage);
+        
+        // Set document direction explicitly
+        document.documentElement.setAttribute('dir', this.currentLanguage === 'ar' ? 'rtl' : 'ltr');
+        document.documentElement.setAttribute('lang', this.currentLanguage);
+        
         this.applyLanguage();
         
         // Close mobile menu after language switch
@@ -201,18 +210,21 @@ class I18nSystem {
     }
 }
 
-// Initialize i18n system when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    console.log('DOM loaded, initializing i18n system...');
-    window.i18n = new I18nSystem();
-});
-
-// Also try to initialize immediately if DOM is already loaded
+// Initialize i18n system - only create one instance
 if (document.readyState === 'loading') {
-    console.log('DOM still loading, waiting for DOMContentLoaded...');
+    // DOM is still loading, wait for DOMContentLoaded
+    document.addEventListener('DOMContentLoaded', () => {
+        console.log('DOM loaded, initializing i18n system...');
+        if (!window.i18n) {
+            window.i18n = new I18nSystem();
+        }
+    });
 } else {
+    // DOM is already loaded, initialize immediately
     console.log('DOM already loaded, initializing i18n system immediately...');
-    window.i18n = new I18nSystem();
+    if (!window.i18n) {
+        window.i18n = new I18nSystem();
+    }
 }
 
 // Manual translation function for debugging

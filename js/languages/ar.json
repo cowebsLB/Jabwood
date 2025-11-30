@@ -56,7 +56,9 @@
     "browseProducts": "تصفح المنتجات"
   },
   "products": {
-    "title": "منتجاتنا",
+    "title": "منتجات",
+    "titleEmphasis": "نا",
+    "catalog": "كتالوج المنتجات",
     "subtitle": "منتجات خشبية متميزة لكل احتياج",
     "hardwoods": "الأخشاب الصلبة",
     "hardwoodsDesc": "أخشاب صلبة متميزة تشمل البلوط والتيك والجوز والمزيد من الأنواع الغريبة",
@@ -171,7 +173,9 @@
     "expertConsultationDesc": "نصائح مهنية لاحتياجاتك المحددة"
   },
   "about": {
-    "title": "عن جابوود",
+    "title": "عن",
+    "titleEmphasis": "جابوود",
+    "est": "تأسست في ثلاثينيات القرن الماضي",
     "subtitle": "شريكك الموثوق في منتجات الخشب المتميزة",
     "history": "تاريخنا",
     "mission": "مهمتنا",
@@ -255,7 +259,9 @@
     "headquarters": "المقر الرئيسي"
   },
   "branches": {
-    "title": "فروعنا",
+    "title": "فروع",
+    "titleEmphasis": "نا",
+    "locations": "مواقعنا",
     "subtitle": "نخدم لبنان والأردن والمملكة العربية السعودية",
     "headquarters": "المقر الرئيسي",
     "tripoliHeadquarters": "المقر الرئيسي في طرابلس",
@@ -284,7 +290,9 @@
     "location": "الموقع"
   },
   "contact": {
-    "title": "اتصل بنا",
+    "title": "اتصل",
+    "titleEmphasis": "بنا",
+    "getInTouch": "تواصل معنا",
     "subtitle": "تواصل مع فريقنا",
     "phone": "الهاتف",
     "email": "البريد الإلكتروني",

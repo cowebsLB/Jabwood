@@ -1,0 +1,926 @@
+{
+  "products": [
+    {
+      "id": "oak",
+      "name": "Oak Wood",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Premium hardwood known for its strength, durability, and beautiful grain patterns.",
+      "badges": ["Hardwood", "Durable", "Premium Quality"],
+      "image": "assets/images/products/hardwoods/Red-oak.jpg",
+      "about": {
+        "paragraphs": [
+          "Oak is one of the most popular and versatile hardwoods available. Known for its exceptional strength and durability, oak wood is perfect for a wide range of applications including furniture, flooring, cabinetry, and construction.",
+          "Our oak wood is carefully selected and processed to ensure the highest quality standards. Each piece is inspected for grain consistency, color uniformity, and structural integrity."
+        ],
+        "features": [
+          "Exceptional strength and durability",
+          "Beautiful natural grain patterns",
+          "Excellent workability",
+          "Resistant to wear and tear",
+          "Stains and finishes well",
+          "Long-lasting and sustainable"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "High",
+        "Color": "Light to medium brown",
+        "Grain": "Straight",
+        "Hardness": "Very Hard"
+      },
+      "applications": {
+        "Furniture": [
+          "Dining tables and chairs",
+          "Bedroom furniture",
+          "Office desks",
+          "Cabinets and storage"
+        ],
+        "Construction": [
+          "Flooring and decking",
+          "Structural beams",
+          "Doors and windows",
+          "Trim and molding"
+        ]
+      },
+      "related": ["teak", "walnut", "maple", "cherry"]
+    },
+    {
+      "id": "teak",
+      "name": "Teak Wood",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Premium tropical hardwood renowned for its natural oils and exceptional weather resistance.",
+      "badges": ["Tropical Hardwood", "Weather Resistant", "Natural Oils"],
+      "image": "assets/images/products/hardwoods/Teak.jpg",
+      "about": {
+        "paragraphs": [
+          "Teak is one of the most sought-after tropical hardwoods, prized for its natural oils that provide exceptional resistance to weather, insects, and decay. This makes it perfect for outdoor applications and marine environments.",
+          "Our teak wood is sourced from sustainable plantations and processed to maintain its natural characteristics. The wood develops a beautiful silver-gray patina when exposed to the elements, adding to its aesthetic appeal."
+        ],
+        "features": [
+          "Natural oils provide weather resistance",
+          "Exceptional durability and strength",
+          "Resistant to insects and decay",
+          "Beautiful golden-brown color",
+          "Low maintenance requirements",
+          "Perfect for outdoor applications"
+        ]
+      },
+      "specifications": {
+        "Type": "Tropical Hardwood",
+        "Density": "Very High",
+        "Color": "Golden brown",
+        "Grain": "Straight to wavy",
+        "Weather Resistance": "Excellent"
+      },
+      "applications": {
+        "Outdoor Furniture": [
+          "Garden benches and tables",
+          "Patio furniture sets",
+          "Poolside loungers",
+          "Outdoor dining sets"
+        ],
+        "Marine & Construction": [
+          "Boat decking and trim",
+          "Outdoor decking",
+          "Window frames",
+          "Exterior doors"
+        ]
+      },
+      "related": ["oak", "walnut", "iroko", "mahogany"]
+    },
+    {
+      "id": "walnut",
+      "name": "Walnut Wood",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Rich dark walnut wood perfect for fine furniture.",
+      "badges": ["Hardwood", "Luxurious", "Fine Furniture"],
+      "image": "assets/images/products/hardwoods/Walnut.jpg",
+      "about": {
+        "paragraphs": [
+          "Walnut is a premium hardwood known for its rich, dark chocolate-brown color and luxurious appearance. It's highly prized for fine furniture, cabinetry, and decorative applications.",
+          "Our walnut wood is carefully selected for its consistent color and grain patterns, making it ideal for high-end furniture and architectural millwork."
+        ],
+        "features": [
+          "Rich chocolate brown to purplish-black color",
+          "Medium texture with straight grain",
+          "Hard and dense with excellent strength",
+          "Naturally beautiful with luxurious appearance",
+          "Easy to work with hand and machine tools",
+          "Takes finishes beautifully"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "High",
+        "Color": "Rich chocolate brown to purplish-black",
+        "Grain": "Straight, sometimes wavy",
+        "Hardness": "Hard and dense"
+      },
+      "applications": {
+        "Fine Furniture": [
+          "Fine furniture",
+          "Cabinetry and millwork",
+          "Gunstocks and handles",
+          "Veneers and paneling"
+        ]
+      },
+      "related": ["oak", "cherry", "maple", "mahogany"]
+    },
+    {
+      "id": "cedar",
+      "name": "Cedar Wood",
+      "category": "softwoods",
+      "breadcrumbCategory": "softwoods",
+      "subtitle": "Premium softwood known for its distinctive aroma, natural beauty, and excellent workability.",
+      "badges": ["Softwood", "Natural Aroma", "Insect Resistant"],
+      "image": "assets/images/products/softwoods/Cedar.jpg",
+      "about": {
+        "paragraphs": [
+          "Cedar is a beautiful softwood prized for its distinctive reddish-brown color, straight grain, and pleasant natural aroma. It's naturally resistant to insects and decay, making it perfect for both indoor and outdoor applications.",
+          "Our cedar wood is carefully selected for its quality and consistency. The wood's natural oils provide protection against moisture and insects, while its fine grain makes it easy to work with hand or power tools."
+        ],
+        "features": [
+          "Distinctive reddish-brown color",
+          "Pleasant natural aroma",
+          "Naturally insect and decay resistant",
+          "Excellent workability",
+          "Lightweight yet durable",
+          "Stable and dimensionally sound"
+        ]
+      },
+      "specifications": {
+        "Type": "Softwood",
+        "Density": "Medium",
+        "Color": "Reddish-brown",
+        "Grain": "Straight",
+        "Workability": "Excellent"
+      },
+      "applications": {
+        "Indoor Uses": [
+          "Closets and storage chests",
+          "Interior paneling",
+          "Furniture and cabinetry",
+          "Decorative trim"
+        ],
+        "Outdoor Uses": [
+          "Fencing and gates",
+          "Decking and siding",
+          "Outdoor furniture",
+          "Garden structures"
+        ]
+      },
+      "related": ["redwood", "douglas-fir", "whitewood"]
+    },
+    {
+      "id": "mdf",
+      "name": "MDF (Medium Density Fiberboard)",
+      "category": "panels",
+      "breadcrumbCategory": "panels",
+      "subtitle": "High-quality engineered wood panel made from wood fibers, perfect for furniture and interior applications.",
+      "badges": ["Engineered Wood", "Smooth Surface", "Versatile"],
+      "image": "assets/images/general/FACTORY.jpg",
+      "about": {
+        "paragraphs": [
+          "Medium Density Fiberboard (MDF) is an engineered wood product made by breaking down hardwood or softwood residuals into wood fibers, combining it with wax and a resin binder, and forming panels by applying high temperature and pressure.",
+          "Our MDF panels are manufactured to the highest standards, ensuring consistent quality, smooth surfaces, and excellent dimensional stability. They provide an ideal substrate for painting, veneering, or laminating."
+        ],
+        "features": [
+          "Smooth, uniform surface",
+          "Consistent density throughout",
+          "Excellent machining properties",
+          "Stable dimensions",
+          "Easy to paint and finish",
+          "Cost-effective alternative to solid wood"
+        ]
+      },
+      "specifications": {
+        "Type": "Engineered Wood",
+        "Density": "Medium",
+        "Surface": "Smooth",
+        "Thickness": "3mm - 25mm",
+        "Moisture Resistance": "Standard"
+      },
+      "applications": {
+        "Furniture": [
+          "Kitchen cabinets",
+          "Bedroom furniture",
+          "Office furniture",
+          "Shelving units"
+        ],
+        "Interior Applications": [
+          "Wall paneling",
+          "Door cores",
+          "Decorative moldings",
+          "Speaker cabinets"
+        ]
+      },
+      "related": ["plywood", "chipboard", "hardboard", "blockboard"]
+    },
+    {
+      "id": "redwood",
+      "name": "Redwood",
+      "category": "softwoods",
+      "breadcrumbCategory": "softwoods",
+      "subtitle": "Premium redwood known for its durability and natural beauty.",
+      "badges": ["Softwood", "Durable", "Natural Beauty"],
+      "image": "assets/images/products/softwoods/redwood.jpg",
+      "about": {
+        "paragraphs": [
+          "Redwood is a premium softwood prized for its exceptional durability, natural beauty, and weather resistance. It's naturally resistant to decay and insects, making it perfect for outdoor applications.",
+          "Our redwood is carefully selected for its quality and consistency. The wood's natural properties provide excellent dimensional stability and resistance to the elements."
+        ],
+        "features": [
+          "Exceptional durability",
+          "Natural beauty and grain",
+          "Weather resistance",
+          "Naturally resistant to decay and insects",
+          "Excellent dimensional stability",
+          "Takes stains and finishes beautifully"
+        ]
+      },
+      "specifications": {
+        "Type": "Softwood",
+        "Density": "Medium",
+        "Color": "Rich reddish-brown with beautiful natural grain patterns",
+        "Grain": "Fine, even texture with straight grain",
+        "Hardness": "Medium density with good workability"
+      },
+      "applications": {
+        "Outdoor Construction": [
+          "Outdoor construction",
+          "Decking and patios",
+          "Fencing and gates",
+          "Garden furniture"
+        ]
+      },
+      "related": ["cedar", "douglas-fir", "whitewood"]
+    },
+    {
+      "id": "douglas-fir",
+      "name": "Douglas Fir",
+      "category": "softwoods",
+      "breadcrumbCategory": "softwoods",
+      "subtitle": "Strong and versatile Douglas fir for structural applications.",
+      "badges": ["Softwood", "Strong", "Versatile"],
+      "image": "assets/images/products/softwoods/Douglas-fir.jpg",
+      "about": {
+        "paragraphs": [
+          "Douglas Fir is a strong and versatile softwood known for its excellent strength properties and good workability. It's widely used in construction and structural applications.",
+          "Our Douglas Fir is carefully selected for its quality and consistency, making it ideal for a wide range of structural and construction projects."
+        ],
+        "features": [
+          "Excellent strength properties",
+          "Good dimensional stability",
+          "Easy to work with hand and machine tools",
+          "Light reddish-brown to yellow color",
+          "Medium to coarse texture with straight grain",
+          "Strong and durable"
+        ]
+      },
+      "specifications": {
+        "Type": "Softwood",
+        "Density": "Medium",
+        "Color": "Light reddish-brown to yellow with prominent grain",
+        "Grain": "Medium to coarse texture with straight grain",
+        "Hardness": "Strong and durable with good workability"
+      },
+      "applications": {
+        "Construction": [
+          "Construction and building",
+          "Structural applications",
+          "Framing and beams",
+          "General construction"
+        ]
+      },
+      "related": ["cedar", "redwood", "whitewood"]
+    },
+    {
+      "id": "whitewood",
+      "name": "White Wood",
+      "category": "softwoods",
+      "breadcrumbCategory": "softwoods",
+      "subtitle": "Light-colored softwood with excellent workability and versatility.",
+      "badges": ["Softwood", "Lightweight", "Versatile"],
+      "image": "assets/images/products/softwoods/Whitewood.jpg",
+      "about": {
+        "paragraphs": [
+          "Whitewood is a light-colored softwood known for its excellent workability and versatility. It's soft and lightweight, making it easy to work with hand and machine tools.",
+          "Our whitewood is carefully selected for its quality and consistency, making it suitable for a wide range of applications from furniture to construction."
+        ],
+        "features": [
+          "Light cream to pale yellow color",
+          "Fine, even texture with straight grain",
+          "Soft and lightweight with good workability",
+          "Easy to work with hand and machine tools",
+          "Takes stains and finishes well",
+          "Suitable for a wide range of applications"
+        ]
+      },
+      "specifications": {
+        "Type": "Softwood",
+        "Density": "Low to Medium",
+        "Color": "Light cream to pale yellow with subtle grain",
+        "Grain": "Fine, even texture with straight grain",
+        "Hardness": "Soft and lightweight with good workability"
+      },
+      "applications": {
+        "General Uses": [
+          "Furniture making",
+          "Construction and building",
+          "Cabinetry and millwork",
+          "General woodworking"
+        ]
+      },
+      "related": ["cedar", "redwood", "douglas-fir"]
+    },
+    {
+      "id": "cherry",
+      "name": "Cherry Wood",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Fine cherry wood that darkens beautifully with age.",
+      "badges": ["Hardwood", "Fine Furniture", "Rich Color"],
+      "image": "assets/images/products/hardwoods/Cherry.jpg",
+      "about": {
+        "paragraphs": [
+          "Cherry is a fine hardwood known for its beautiful color that darkens to a rich reddish-brown with age. It's highly prized for fine furniture and cabinetry.",
+          "Our cherry wood is carefully selected for its consistent color and grain patterns, making it ideal for high-end furniture and decorative applications."
+        ],
+        "features": [
+          "Light pinkish-brown that darkens to rich reddish-brown",
+          "Fine, even texture with straight grain",
+          "Medium density with good workability",
+          "Naturally beautiful with rich, warm color",
+          "Easy to work with hand and machine tools",
+          "Takes stains and finishes excellently"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "Medium",
+        "Color": "Light pinkish-brown that darkens to rich reddish-brown",
+        "Grain": "Fine, even texture with straight grain",
+        "Hardness": "Medium density with good workability"
+      },
+      "applications": {
+        "Fine Furniture": [
+          "Fine furniture",
+          "Cabinetry and millwork",
+          "Musical instruments",
+          "Woodturning and carving"
+        ]
+      },
+      "related": ["oak", "walnut", "maple"]
+    },
+    {
+      "id": "maple",
+      "name": "Maple Wood",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Hard maple wood known for its light color and fine grain.",
+      "badges": ["Hardwood", "Durable", "Fine Grain"],
+      "image": "assets/images/products/hardwoods/Maple.jpg",
+      "about": {
+        "paragraphs": [
+          "Maple is a very hard and dense hardwood known for its light color and fine grain. It's highly durable and resistant to wear, making it perfect for flooring and high-traffic applications.",
+          "Our maple wood is carefully selected for its quality and consistency, ensuring excellent durability and a beautiful appearance."
+        ],
+        "features": [
+          "Creamy white to light reddish-brown color",
+          "Fine, even texture with straight grain",
+          "Very hard and dense with excellent durability",
+          "Excellent wear resistance and durability",
+          "Good workability with sharp tools",
+          "Takes stains and finishes excellently"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "Very High",
+        "Color": "Creamy white to light reddish-brown",
+        "Grain": "Fine, even texture with straight grain",
+        "Hardness": "Very hard and dense with excellent durability"
+      },
+      "applications": {
+        "Applications": [
+          "Flooring and stairs",
+          "Furniture making",
+          "Cabinetry and millwork",
+          "Musical instruments"
+        ]
+      },
+      "related": ["oak", "cherry", "walnut"]
+    },
+    {
+      "id": "beech-wood",
+      "name": "Beech Wood",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Dense and durable beech wood with excellent workability.",
+      "badges": ["Hardwood", "Durable", "Excellent Workability"],
+      "image": "assets/images/products/hardwoods/Beech-wood.jpg",
+      "about": {
+        "paragraphs": [
+          "Beech is a dense and durable hardwood known for its excellent workability and fine texture. It's widely used in furniture making and cabinetry.",
+          "Our beech wood is carefully selected for its quality and consistency, making it ideal for a wide range of woodworking applications."
+        ],
+        "features": [
+          "Light cream to pinkish-brown color",
+          "Fine, even texture with straight grain",
+          "Hard and dense with excellent workability",
+          "Excellent workability with hand and machine tools",
+          "Takes stains and finishes beautifully",
+          "Durable and long-lasting"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "High",
+        "Color": "Light cream to pinkish-brown with fine grain",
+        "Grain": "Fine, even texture with straight grain",
+        "Hardness": "Hard and dense with excellent workability"
+      },
+      "applications": {
+        "Applications": [
+          "Furniture making",
+          "Cabinetry and millwork",
+          "Kitchen cabinets",
+          "Office furniture"
+        ]
+      },
+      "related": ["oak", "maple", "cherry"]
+    },
+    {
+      "id": "ash",
+      "name": "Ash Wood",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Flexible and shock-resistant ash wood perfect for furniture.",
+      "badges": ["Hardwood", "Flexible", "Shock Resistant"],
+      "image": "assets/images/products/hardwoods/Ash.jpg",
+      "about": {
+        "paragraphs": [
+          "Ash is a hard and dense hardwood known for its excellent flexibility and shock resistance. It's perfect for furniture that requires strength and flexibility.",
+          "Our ash wood is carefully selected for its quality and consistency, making it ideal for furniture, tool handles, and sports equipment."
+        ],
+        "features": [
+          "Light to medium brown with prominent grain",
+          "Coarse texture with straight grain",
+          "Hard and dense with excellent flexibility",
+          "Excellent bending properties and flexibility",
+          "Easy to work with hand and machine tools",
+          "Takes stains and finishes well"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "High",
+        "Color": "Light to medium brown with prominent grain",
+        "Grain": "Coarse texture with straight grain",
+        "Hardness": "Hard and dense with excellent flexibility"
+      },
+      "applications": {
+        "Applications": [
+          "Furniture making",
+          "Tool handles",
+          "Sports equipment",
+          "Musical instruments"
+        ]
+      },
+      "related": ["oak", "maple", "beech-wood"]
+    },
+    {
+      "id": "sapele",
+      "name": "Sapele",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "African hardwood with interlocking grain and reddish-brown color.",
+      "badges": ["Hardwood", "African", "Interlocking Grain"],
+      "image": "assets/images/products/hardwoods/Sapele.jpg",
+      "about": {
+        "paragraphs": [
+          "Sapele is an African hardwood known for its beautiful grain pattern with interlocked grain and reddish-brown color with golden luster. It's highly prized for furniture and decorative applications.",
+          "Our sapele wood is carefully selected for its quality and consistency, making it ideal for high-end furniture and architectural millwork."
+        ],
+        "features": [
+          "Reddish-brown to dark brown with golden luster",
+          "Fine to medium texture with interlocked grain",
+          "Hard and dense with good strength",
+          "Beautiful grain pattern with natural luster",
+          "Good workability with sharp tools",
+          "Takes finishes well and polishes beautifully"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "High",
+        "Color": "Reddish-brown to dark brown with golden luster",
+        "Grain": "Fine to medium texture with interlocked grain",
+        "Hardness": "Hard and dense with good strength"
+      },
+      "applications": {
+        "Applications": [
+          "Fine furniture",
+          "Cabinetry and millwork",
+          "Veneers and paneling",
+          "Doors and panels"
+        ]
+      },
+      "related": ["iroko", "meranti", "wawa"]
+    },
+    {
+      "id": "iroko",
+      "name": "Iroko",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "African hardwood with natural resistance to rot and insects.",
+      "badges": ["Hardwood", "African", "Rot Resistant"],
+      "image": "assets/images/products/hardwoods/Iroko.jpg",
+      "about": {
+        "paragraphs": [
+          "Iroko is an African hardwood known for its excellent natural durability and weather resistance. It's naturally resistant to rot and insects, making it perfect for outdoor applications.",
+          "Our iroko wood is carefully selected for its quality and consistency, ensuring excellent durability and resistance to the elements."
+        ],
+        "features": [
+          "Yellowish-brown to dark brown with interlocked grain",
+          "Medium to coarse texture with interlocked grain",
+          "Hard and dense with excellent durability",
+          "Excellent natural durability and weather resistance",
+          "Good workability with sharp tools",
+          "Takes finishes well and polishes to a good luster"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "High",
+        "Color": "Yellowish-brown to dark brown with interlocked grain",
+        "Grain": "Medium to coarse texture with interlocked grain",
+        "Hardness": "Hard and dense with excellent durability"
+      },
+      "applications": {
+        "Applications": [
+          "Outdoor construction",
+          "Marine applications",
+          "Furniture making",
+          "Construction and building"
+        ]
+      },
+      "related": ["teak", "sapele", "meranti"]
+    },
+    {
+      "id": "ramin",
+      "name": "Ramin",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Light-colored tropical hardwood with fine texture.",
+      "badges": ["Hardwood", "Tropical", "Fine Texture"],
+      "image": "assets/images/products/hardwoods/Ramin.jpg",
+      "about": {
+        "paragraphs": [
+          "Ramin is a light-colored tropical hardwood known for its fine texture and good workability. It's widely used in furniture making and general woodworking.",
+          "Our ramin wood is carefully selected for its quality and consistency, making it ideal for a wide range of applications."
+        ],
+        "features": [
+          "Light yellow to pale brown with subtle grain",
+          "Fine, even texture with straight grain",
+          "Medium density with good workability",
+          "Easy to work with hand and machine tools",
+          "Takes stains and finishes well",
+          "Good dimensional stability"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "Medium",
+        "Color": "Light yellow to pale brown with subtle grain",
+        "Grain": "Fine, even texture with straight grain",
+        "Hardness": "Medium density with good workability"
+      },
+      "applications": {
+        "Applications": [
+          "Furniture making",
+          "Cabinetry and millwork",
+          "General woodworking",
+          "Interior applications"
+        ]
+      },
+      "related": ["maple", "beech-wood", "whitewood"]
+    },
+    {
+      "id": "meranti",
+      "name": "Meranti",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Southeast Asian hardwood with good workability and durability.",
+      "badges": ["Hardwood", "Southeast Asian", "Cost Effective"],
+      "image": "assets/images/products/hardwoods/Meranti.jpg",
+      "about": {
+        "paragraphs": [
+          "Meranti is a Southeast Asian hardwood known for its good workability and durability. It offers excellent value for money and is widely used in construction and furniture making.",
+          "Our meranti wood is carefully selected for its quality and consistency, making it ideal for a wide range of applications."
+        ],
+        "features": [
+          "Light to dark reddish-brown with variable grain",
+          "Medium texture with straight to interlocked grain",
+          "Medium density with good strength properties",
+          "Easy to work with hand and machine tools",
+          "Takes stains and finishes well",
+          "Good value for money hardwood option"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "Medium",
+        "Color": "Light to dark reddish-brown with variable grain",
+        "Grain": "Medium texture with straight to interlocked grain",
+        "Hardness": "Medium density with good strength properties"
+      },
+      "applications": {
+        "Applications": [
+          "Construction and building",
+          "Furniture making",
+          "Cabinetry and millwork",
+          "General woodworking"
+        ]
+      },
+      "related": ["sapele", "iroko", "wawa"]
+    },
+    {
+      "id": "wawa",
+      "name": "Wawa",
+      "category": "hardwoods",
+      "breadcrumbCategory": "hardwoods",
+      "subtitle": "Lightweight African hardwood suitable for various applications.",
+      "badges": ["Hardwood", "African", "Lightweight"],
+      "image": "assets/images/products/hardwoods/Wawa.jpg",
+      "about": {
+        "paragraphs": [
+          "Wawa is a lightweight African hardwood known for its ease of handling and good workability. It's an affordable hardwood option suitable for many applications.",
+          "Our wawa wood is carefully selected for its quality and consistency, making it ideal for furniture, construction, and general woodworking."
+        ],
+        "features": [
+          "Pale yellow to light brown with subtle grain",
+          "Fine to medium texture with straight grain",
+          "Lightweight with moderate density",
+          "Easy to handle and transport",
+          "Easy to work with hand and machine tools",
+          "Affordable hardwood option for many applications"
+        ]
+      },
+      "specifications": {
+        "Type": "Hardwood",
+        "Density": "Low to Medium",
+        "Color": "Pale yellow to light brown with subtle grain",
+        "Grain": "Fine to medium texture with straight grain",
+        "Hardness": "Lightweight with moderate density"
+      },
+      "applications": {
+        "Applications": [
+          "Furniture making",
+          "Construction and building",
+          "General woodworking",
+          "Packaging and crates"
+        ]
+      },
+      "related": ["meranti", "sapele", "ramin"]
+    },
+    {
+      "id": "plywood",
+      "name": "Plywood",
+      "category": "panels",
+      "breadcrumbCategory": "panels",
+      "subtitle": "Versatile plywood for construction and furniture making.",
+      "badges": ["Engineered Wood", "Versatile", "Strong"],
+      "image": "assets/images/products/panels/Plywood.jpg",
+      "about": {
+        "paragraphs": [
+          "Plywood is a versatile engineered wood product made from multiple layers of wood veneer bonded together. It offers excellent strength-to-weight ratio and dimensional stability.",
+          "Our plywood is manufactured to the highest standards, ensuring consistent quality and excellent performance in a wide range of applications."
+        ],
+        "features": [
+          "Multiple layers of wood veneer bonded together",
+          "High strength-to-weight ratio",
+          "Resistant to warping and splitting",
+          "Easy to cut, drill, and fasten",
+          "Various grades from A to D for different applications",
+          "Available in various thicknesses from 3mm to 25mm"
+        ]
+      },
+      "specifications": {
+        "Type": "Engineered Wood",
+        "Density": "Medium",
+        "Construction": "Multiple layers of wood veneer bonded together",
+        "Grades": "Various grades from A to D for different applications",
+        "Thickness": "Available in various thicknesses from 3mm to 25mm"
+      },
+      "applications": {
+        "Applications": [
+          "Construction and building",
+          "Furniture making",
+          "Cabinetry and millwork",
+          "Subflooring and sheathing"
+        ]
+      },
+      "related": ["mdf", "chipboard", "blockboard"]
+    },
+    {
+      "id": "chipboard",
+      "name": "Chipboard",
+      "category": "panels",
+      "breadcrumbCategory": "panels",
+      "subtitle": "Cost-effective particle board made from wood chips and resin.",
+      "badges": ["Engineered Wood", "Cost Effective", "Versatile"],
+      "image": "assets/images/products/panels/Chipboard.jpg",
+      "about": {
+        "paragraphs": [
+          "Chipboard, also known as particle board, is a cost-effective engineered wood product made from wood chips bonded with resin under heat and pressure. It's an affordable alternative to solid wood.",
+          "Our chipboard is manufactured to high standards, ensuring consistent quality and good performance in a wide range of applications."
+        ],
+        "features": [
+          "Wood chips bonded with resin under heat and pressure",
+          "Medium density particle board",
+          "Affordable alternative to solid wood",
+          "Easy to cut, drill, and shape",
+          "Can be painted, laminated, or veneered",
+          "Available in various thicknesses from 6mm to 25mm"
+        ]
+      },
+      "specifications": {
+        "Type": "Engineered Wood",
+        "Density": "Medium",
+        "Construction": "Wood chips bonded with resin under heat and pressure",
+        "Thickness": "Available in various thicknesses from 6mm to 25mm",
+        "Finishing": "Can be painted, laminated, or veneered"
+      },
+      "applications": {
+        "Applications": [
+          "Furniture making",
+          "Cabinetry and millwork",
+          "Interior applications",
+          "Packaging and crates"
+        ]
+      },
+      "related": ["mdf", "plywood", "hardboard"]
+    },
+    {
+      "id": "blockboard",
+      "name": "Blockboard",
+      "category": "panels",
+      "breadcrumbCategory": "panels",
+      "subtitle": "Core panel with solid wood strips between veneer faces.",
+      "badges": ["Engineered Wood", "Stable", "Solid Core"],
+      "image": "assets/images/products/panels/Blockboard.jpg",
+      "about": {
+        "paragraphs": [
+          "Blockboard is an engineered wood product with solid wood strips between veneer faces. It offers excellent dimensional stability and is resistant to warping and twisting.",
+          "Our blockboard is manufactured to high standards, ensuring consistent quality and excellent stability for a wide range of applications."
+        ],
+        "features": [
+          "Solid wood strips between veneer faces",
+          "Excellent dimensional stability",
+          "Resistant to warping and twisting",
+          "Easy to work with hand and machine tools",
+          "Takes stains and finishes well",
+          "Available in various thicknesses from 12mm to 30mm"
+        ]
+      },
+      "specifications": {
+        "Type": "Engineered Wood",
+        "Density": "Medium to High",
+        "Construction": "Solid wood strips between veneer faces",
+        "Stability": "Excellent dimensional stability",
+        "Thickness": "Available in various thicknesses from 12mm to 30mm"
+      },
+      "applications": {
+        "Applications": [
+          "Furniture making",
+          "Doors and panels",
+          "Cabinetry and millwork",
+          "Construction applications"
+        ]
+      },
+      "related": ["plywood", "mdf", "hardboard"]
+    },
+    {
+      "id": "hardboard",
+      "name": "Hardboard",
+      "category": "panels",
+      "breadcrumbCategory": "panels",
+      "subtitle": "Dense fiberboard with smooth surface for various applications.",
+      "badges": ["Engineered Wood", "Smooth Surface", "Dense"],
+      "image": "assets/images/products/panels/Hardboard.jpg",
+      "about": {
+        "paragraphs": [
+          "Hardboard is a high-density fiberboard made from wood fibers compressed under high pressure. It has a smooth surface that's excellent for painting and finishing.",
+          "Our hardboard is manufactured to high standards, ensuring consistent quality and excellent surface finish for a wide range of applications."
+        ],
+        "features": [
+          "Wood fibers compressed under high pressure",
+          "High density fiberboard",
+          "Excellent for painting and finishing",
+          "Easy to cut and shape",
+          "Affordable alternative to solid wood",
+          "Available in various thicknesses from 3mm to 12mm"
+        ]
+      },
+      "specifications": {
+        "Type": "Engineered Wood",
+        "Density": "High",
+        "Construction": "Wood fibers compressed under high pressure",
+        "Surface": "Smooth surface excellent for painting",
+        "Thickness": "Available in various thicknesses from 3mm to 12mm"
+      },
+      "applications": {
+        "Applications": [
+          "Furniture making",
+          "Interior applications",
+          "Artwork and displays",
+          "Backing panels"
+        ]
+      },
+      "related": ["mdf", "chipboard", "plywood"]
+    },
+    {
+      "id": "melaminated-faced-panels",
+      "name": "Melaminated Faced Panels",
+      "category": "panels",
+      "breadcrumbCategory": "panels",
+      "subtitle": "Panels with melamine coating for durable, easy-to-clean surfaces.",
+      "badges": ["Engineered Wood", "Melamine Coating", "Durable"],
+      "image": "assets/images/products/panels/Melaminated-faced-panels.jpg",
+      "about": {
+        "paragraphs": [
+          "Melaminated Faced Panels are wood-based panels with a melamine resin coating that provides a smooth, hard-wearing surface. They're resistant to scratches, stains, and heat.",
+          "Our melaminated panels are manufactured to high standards, ensuring consistent quality and excellent durability for a wide range of applications."
+        ],
+        "features": [
+          "Wood-based panel with melamine resin coating",
+          "Smooth, hard-wearing surface",
+          "Resistant to scratches, stains, and heat",
+          "Easy to clean and maintain",
+          "Available in various colors and patterns",
+          "Available in various thicknesses from 6mm to 25mm"
+        ]
+      },
+      "specifications": {
+        "Type": "Engineered Wood",
+        "Density": "Medium",
+        "Coating": "Melamine resin coating",
+        "Durability": "Resistant to scratches, stains, and heat",
+        "Thickness": "Available in various thicknesses from 6mm to 25mm"
+      },
+      "applications": {
+        "Applications": [
+          "Kitchen cabinets",
+          "Furniture making",
+          "Interior applications",
+          "Commercial applications"
+        ]
+      },
+      "related": ["mdf", "plywood", "chipboard"]
+    },
+    {
+      "id": "film-face-shuttering-plywood",
+      "name": "Film Face Shuttering Plywood",
+      "category": "panels",
+      "breadcrumbCategory": "panels",
+      "subtitle": "Specialized plywood with film coating for concrete formwork.",
+      "badges": ["Engineered Wood", "Water Resistant", "Film Coating"],
+      "image": "assets/images/products/panels/Film-face-shuttering-plywood.jpg",
+      "about": {
+        "paragraphs": [
+          "Film Face Shuttering Plywood is a specialized plywood with a waterproof film coating designed for concrete formwork. It produces smooth concrete surfaces and is easy to separate from concrete.",
+          "Our film face shuttering plywood is manufactured to high standards, ensuring excellent water resistance and durability for concrete formwork applications."
+        ],
+        "features": [
+          "Plywood with waterproof film coating",
+          "Excellent water resistance and durability",
+          "Long-lasting and reusable",
+          "Produces smooth concrete surfaces",
+          "Easy to separate from concrete",
+          "Available in various thicknesses from 12mm to 25mm"
+        ]
+      },
+      "specifications": {
+        "Type": "Engineered Wood",
+        "Density": "Medium to High",
+        "Coating": "Waterproof film coating",
+        "Water Resistance": "Excellent water resistance and durability",
+        "Thickness": "Available in various thicknesses from 12mm to 25mm"
+      },
+      "applications": {
+        "Applications": [
+          "Concrete formwork",
+          "Shuttering and molds",
+          "Temporary structures",
+          "Construction applications"
+        ]
+      },
+      "related": ["plywood", "blockboard", "mdf"]
+    }
+  ]
+}
+
