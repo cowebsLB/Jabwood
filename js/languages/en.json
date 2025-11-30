@@ -428,5 +428,50 @@
     "getInTouch": "Get In Touch",
     "visitUs": "Visit Us",
     "quickLinks": "Quick Links"
+  },
+  "home": {
+    "hero": {
+      "subtitle": "Architecture of Nature",
+      "title": "Timeless",
+      "titleEmphasis": "Timber",
+      "titleSuffix": "Design",
+      "description": "Since 1930, crafting premium wood products from Tripoli, Lebanon. Your trusted partner for hardwoods, softwoods, and engineered panels across the Middle East.",
+      "exploreCollection": "Explore Collection",
+      "scroll": "Scroll",
+      "statsYears": "Years",
+      "statsCBM": "CBM",
+      "statsCountries": "Countries"
+    },
+    "intro": {
+      "title": "Crafting legacy from the",
+      "titleEmphasis": "heart",
+      "titleSuffix": "of the forest.",
+      "description": "Since the 1930s, Jabwood has bridged the gap between raw nature and refined architecture. Based in Tripoli, we curate rare hardwoods and sustainable panels for the world's most demanding projects.",
+      "years": "Years",
+      "cbmVolume": "CBM Volume"
+    },
+    "catalog": {
+      "title": "Our Catalog",
+      "viewFullRange": "View Full Range",
+      "hardwoods": "Hard Woods",
+      "softwoods": "Soft Woods & Framing",
+      "panels": "Engineered Panels",
+      "customOrders": "Custom Orders",
+      "customOrdersDesc": "Need specific dimensions or rare species? Our Tripoli facility handles bespoke requests for large-scale construction.",
+      "contactUs": "Contact Us"
+    },
+    "precision": {
+      "title": "Precision.",
+      "description": "State-of-the-art machinery meets traditional craftsmanship in our Lebanese facilities.",
+      "watchProcess": "Watch The Process"
+    },
+    "footer": {
+      "visitUs": "Visit Us",
+      "tripoliLebanon": "Tripoli, Lebanon",
+      "address": "Main Highway, Wood District",
+      "phone": "+961 6 000 000",
+      "allRights": "All Rights Reserved",
+      "copyright": "© 2025"
+    }
   }
 }

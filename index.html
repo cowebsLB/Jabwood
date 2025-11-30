@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jabwood.com - Premium Wood Products</title>
-    <meta name="description" content="Jabwood - 50+ years of excellence in premium wood products. Hard woods, soft woods, and wood-based panels from Tripoli, Lebanon.">
+    <title>Jabwood - The Art of Timber</title>
+    <meta name="description" content="Jabwood - Premium wood products. Crafted in Tripoli, Lebanon since 1930.">
     
     <!-- Favicons -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/apple-touch-icon.png">
@@ -12,13 +12,15 @@
     <link rel="icon" type="image/png" sizes="16x16" href="assets/icons/favicon-16x16.png">
     <link rel="manifest" href="assets/icons/site.webmanifest">
     
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/custom.css">
@@ -29,454 +31,298 @@
             theme: {
                 extend: {
                     colors: {
-                        'wood-brown': '#8B4513',
-                        'wood-light': '#D2B48C',
-                        'wood-dark': '#654321',
-                        'forest-green': '#228B22',
-                        'sage-green': '#9CAF88',
-                        'cream': '#F5F5DC'
+                        wood: {
+                            900: '#1a0f0a',
+                            800: '#2c1810',
+                            500: '#c68e17', 
+                            100: '#f5ebe0',
+                        },
+                        stone: {
+                            50: '#f9f9f9',
+                            900: '#0c0c0c',
+                        }
                     },
                     fontFamily: {
-                        'primary': ['Rockwell', 'Georgia', 'serif'],
-                        'secondary': ['Roboto', 'Arial', 'sans-serif'],
-                        'accent': ['Rockwell', 'Georgia', 'serif']
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    cursor: {
+                        'none': 'none',
                     }
                 }
             }
         }
     </script>
 </head>
-<body class="bg-cream text-gray-800 font-secondary">
-    <!-- Header -->
-    <header class="bg-white shadow-md sticky top-0 z-50">
-        <nav class="container mx-auto px-4 py-3">
-            <div class="flex items-center justify-between">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3">
-                    <img src="assets\images\general\hdr-logo.jpg" alt="Jabwood Logo" class="h-12 w-auto">
-                    <div>
-                        <h1 class="text-xl font-bold text-wood-brown font-primary">Jabwood</h1>
-                        <p class="text-sm text-gray-600 font-secondary">Tripoli - Lebanon</p>
+<body>
+    <!-- Grain Overlay -->
+    <div class="grain"></div>
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+    <!-- Curtain Loader -->
+    <div class="loader-text" id="loader-text">
+        <span class="block overflow-hidden">
+            <span class="block translate-y-full transition-transform duration-700 delay-100" id="loader-word">JABWOOD</span>
+        </span>
                     </div>
-                </div>
-                
-                <!-- Desktop Navigation -->
-                <div class="hidden md:flex items-center space-x-8">
-                    <a href="index.html" class="text-wood-brown hover:text-forest-green transition-colors font-medium" data-i18n="nav.home">Home</a>
-                    <a href="about-us.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.about">About Us</a>
-                    <a href="our-products.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.products">Our Products</a>
-                    <a href="branches.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.branches">Branches</a>
-                    <a href="contact.html" class="text-gray-700 hover:text-forest-green transition-colors" data-i18n="nav.contact">Contact</a>
+    <div class="curtain-panel curtain-left"></div>
+    <div class="curtain-panel curtain-right"></div>
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 nav-glass transition-all duration-500 py-3 px-6 flex justify-between items-center" id="navbar">
+        <a href="#" class="text-xl font-serif font-bold text-white nav-link relative z-50 hover-trigger" data-cursor="magnetic" translate="no">Jabwood.</a>
+        
+        <div class="hidden md:flex gap-8 items-center">
+            <a href="index.html" class="text-sm font-medium text-white/80 hover:text-wood-500 transition-colors nav-link hover-trigger" data-i18n="nav.home">Home</a>
+            <a href="about-us.html" class="text-sm font-medium text-white/80 hover:text-wood-500 transition-colors nav-link hover-trigger" data-i18n="nav.about">Story</a>
+            <a href="our-products.html" class="text-sm font-medium text-white/80 hover:text-wood-500 transition-colors nav-link hover-trigger" data-i18n="nav.products">Products</a>
+            <a href="contact.html" class="text-sm font-medium text-white/80 hover:text-wood-500 transition-colors nav-link hover-trigger" data-i18n="nav.contact">Contact</a>
                     
                     <!-- Desktop Language Switch Button -->
-                    <button id="desktop-language-switch" class="bg-wood-brown text-white px-4 py-2 rounded-lg hover:bg-wood-dark transition-colors font-medium flex items-center gap-2 text-sm">
-                        <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <button id="desktop-language-switch" class="bg-wood-500 text-stone-900 px-4 py-2 rounded-lg hover:bg-wood-600 transition-colors font-medium flex items-center gap-2 text-sm hover-trigger">
+                <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
                         </svg>
                         <span id="desktop-language-text">العربية</span>
                     </button>
                 </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-wood-brown" aria-label="Open mobile menu">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                    </svg>
+        <button id="mobile-menu-btn" class="md:hidden text-white nav-link hover-trigger relative z-50" aria-label="Toggle mobile menu" aria-expanded="false">
+            <svg id="hamburger-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" class="transition-opacity duration-300" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+            <svg id="close-icon" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" class="absolute top-0 left-0 opacity-0 transition-opacity duration-300" aria-hidden="true"><path d="M6 18L18 6M6 6l12 12"/></svg>
                 </button>
-            </div>
-            
         </nav>
-    </header>
-
-    <!-- Mobile Navigation Modal (Outside Header) -->
-    <div id="mobile-nav-modal" class="mobile-nav-modal">
-        <div class="mobile-nav-content">
-            <div class="mobile-nav-header">
-                <div class="mobile-nav-logo">
-                    <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo">
-                </div>
-                <button id="mobile-nav-close" class="mobile-nav-close" aria-label="Close menu">
-                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-            
-            <div class="mobile-nav-menu">
-                <ul>
-                    <li><a href="index.html" class="active" data-i18n="nav.home">Home</a></li>
-                    <li><a href="about-us.html" data-i18n="nav.about">About Us</a></li>
-                    <li><a href="our-products.html" data-i18n="nav.products">Our Products</a></li>
-                    <li><a href="branches.html" data-i18n="nav.branches">Branches</a></li>
-                    <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
-                </ul>
-            </div>
-            
-            <div class="mobile-nav-footer">
-                <div class="mobile-nav-contact">
-                    <p><strong>Tripoli, Lebanon</strong></p>
-                    <p>50+ Years of Excellence</p>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-stone-900/95 backdrop-blur-xl z-40 transform translate-x-full transition-transform duration-700 cubic-bezier(0.77, 0, 0.175, 1) flex flex-col justify-center items-center" style="-webkit-backdrop-filter: blur(24px); backdrop-filter: blur(24px);">
+        <div class="flex flex-col gap-8 text-center">
+            <a href="index.html" class="mobile-link text-5xl font-serif text-white hover:text-wood-500 transition-colors overflow-hidden block"><span class="block translate-y-full transition-transform duration-500 delay-100" data-i18n="nav.home">Home</span></a>
+            <a href="about-us.html" class="mobile-link text-5xl font-serif text-white hover:text-wood-500 transition-colors overflow-hidden block"><span class="block translate-y-full transition-transform duration-500 delay-200" data-i18n="nav.about">Our Story</span></a>
+            <a href="our-products.html" class="mobile-link text-5xl font-serif text-white hover:text-wood-500 transition-colors overflow-hidden block"><span class="block translate-y-full transition-transform duration-500 delay-300" data-i18n="nav.products">Products</span></a>
+            <a href="contact.html" class="mobile-link text-5xl font-serif text-white hover:text-wood-500 transition-colors overflow-hidden block"><span class="block translate-y-full transition-transform duration-500 delay-400" data-i18n="nav.contact">Contact</span></a>
                 </div>
                 
                 <!-- Language Switch Button -->
-                <div class="mt-6 pt-6 border-t border-gray-200">
-                    <button id="language-switch" class="w-full bg-wood-brown text-white px-4 py-3 rounded-lg hover:bg-brown-700 transition-colors font-medium flex items-center justify-center gap-2">
-                        <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div class="mt-8 pt-8 border-t border-white/20">
+            <button id="language-switch" class="w-full max-w-xs bg-wood-500 text-stone-900 px-6 py-3 rounded-lg hover:bg-wood-600 transition-colors font-medium flex items-center justify-center gap-2 hover-trigger">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
                         </svg>
                         <span id="language-text">العربية</span>
                     </button>
                 </div>
-            </div>
+        
+        <div class="absolute bottom-12 text-white/30 text-sm font-sans tracking-widest uppercase" data-i18n="footer.tripoliLebanon">
+            Tripoli &bull; Lebanon
         </div>
     </div>
+    <!-- 1. HERO SECTION (Sticky Parallax) -->
+    <div id="hero-section" class="hero-sticky flex items-center justify-center relative overflow-hidden">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <img src="assets/images/general/hero-background.jpg" 
+                 class="w-full h-full object-cover brightness-50" 
+                 alt="Wood Workshop"
+                 id="hero-bg">
+    </div>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Premium Hero Section -->
-        <section class="hero-fullscreen">
-            <div class="hero-content">
-                <div class="text-center">
-                    <h2 class="hero-title fade-in font-primary" data-i18n="hero.title">
-                        Welcome to Jabwood
-                    </h2>
-                    <p class="hero-subtitle fade-in-delay font-secondary" data-i18n="hero.subtitle">
-                        50+ Years of Excellence in Premium Wood Products
-                    </p>
-                    <div class="hero-cta-group fade-in-delay-2">
-                        <a href="our-products.html" class="hero-cta-primary">
-                            <span data-i18n="hero.exploreProducts">Explore Our Products</span>
-                        </a>
-                        <a href="about-us.html" class="hero-cta-secondary">
-                            <span data-i18n="hero.ourStory">Our Story</span>
-                        </a>
-                    </div>
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto w-full">
+            <div class="mb-4 reveal-text">
+                <span class="text-wood-500 uppercase tracking-[0.4em] text-sm font-semibold" data-i18n="home.hero.subtitle">Architecture of Nature</span>
+            </div>
+            <div class="mb-4 reveal-text">
+                <span class="font-serif text-6xl md:text-9xl text-white leading-[0.9]">
+                    <span data-i18n="home.hero.title">Timeless</span><br><i class="font-serif text-wood-500" data-i18n="home.hero.titleEmphasis">Timber</i> <span data-i18n="home.hero.titleSuffix">Design</span>
+                </span>
+            </div>
+            
+            <!-- Quick Stats - Centered in middle of hero -->
+            <div class="flex justify-center items-center gap-10 md:gap-16 my-10 md:my-12 reveal-text opacity-0 translate-y-10 transition-all duration-1000 delay-300" id="hero-stats">
+                <div class="text-center px-4">
+                    <div class="text-6xl md:text-7xl lg:text-8xl font-serif text-white font-bold mb-2">50+</div>
+                    <div class="text-base md:text-lg text-white uppercase tracking-widest font-bold" data-i18n="home.hero.statsYears">Years</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-6xl md:text-7xl lg:text-8xl font-serif text-white font-bold mb-2">400K</div>
+                    <div class="text-base md:text-lg text-white uppercase tracking-widest font-bold" data-i18n="home.hero.statsCBM">CBM</div>
+                </div>
+                <div class="text-center px-4">
+                    <div class="text-6xl md:text-7xl lg:text-8xl font-serif text-white font-bold mb-2">3+</div>
+                    <div class="text-base md:text-lg text-white uppercase tracking-widest font-bold" data-i18n="home.hero.statsCountries">Countries</div>
                 </div>
             </div>
             
-            <!-- Animated Scroll Indicator -->
-            <div class="scroll-indicator" onclick="scrollToNext()">
-                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                </svg>
+            <div class="mb-6 reveal-text max-w-2xl mx-auto">
+                <p class="text-white/90 text-lg md:text-xl leading-relaxed" data-i18n="home.hero.description">
+                    Since 1930, crafting premium wood products from Tripoli, Lebanon. Your trusted partner for hardwoods, softwoods, and engineered panels across the Middle East.
+                </p>
             </div>
-        </section>
-
-        <!-- Statistics Section -->
-        <section class="py-20 bg-gradient-to-br from-wood-dark to-wood-brown relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <div class="wood-grain-texture w-full h-full"></div>
+            <div class="flex justify-center gap-6 mt-6 opacity-0 translate-y-10 transition-all duration-1000 delay-700" id="hero-cta">
+                <a href="our-products.html" class="bg-wood-500 text-stone-900 px-8 py-4 rounded-full font-bold hover:bg-white transition-colors hover-trigger" data-i18n="home.hero.exploreCollection">
+                    Explore Collection
+                </a>
+                <a href="#video-reel" class="w-14 h-14 rounded-full border border-white/30 flex items-center justify-center text-white hover:bg-white hover:text-black transition-all hover-trigger" aria-label="Watch video">
+                    <svg width="12" height="14" fill="currentColor" viewBox="0 0 12 14" aria-hidden="true"><path d="M11.5 6.134a1 1 0 010 1.732l-9 5.196A1 1 0 011 12.196V1.804a1 1 0 011.5-.866l9 5.196z"/></svg>
+                </a>
             </div>
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="max-w-6xl mx-auto">
-                    <div class="grid md:grid-cols-4 gap-8">
-                        <div class="stat-card fade-in">
-                            <div class="stat-number" data-target="50">0+</div>
-                            <div class="stat-label" data-i18n="company.yearsLabel">Years</div>
-                            <div class="stat-description" data-i18n="company.yearsDesc">Of Excellence</div>
                         </div>
-                        <div class="stat-card fade-in-delay">
-                            <div class="stat-number" data-target="400">0K</div>
-                            <div class="stat-label" data-i18n="company.cbmLabel">CBM</div>
-                            <div class="stat-description" data-i18n="company.cbmDesc">Annual Volume</div>
-                        </div>
-                        <div class="stat-card fade-in-delay-2">
-                            <div class="stat-number" data-target="3">0+</div>
-                            <div class="stat-label" data-i18n="company.countriesLabel">Countries</div>
-                            <div class="stat-description" data-i18n="company.countriesDesc">We Serve</div>
-                        </div>
-                        <div class="stat-card fade-in-delay-3">
-                            <div class="stat-number" data-target="100">0+</div>
-                            <div class="stat-label" data-i18n="company.productsLabel">Products</div>
-                            <div class="stat-description" data-i18n="company.productsDesc">Wood Varieties</div>
-                        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+            <span class="text-xs uppercase tracking-widest" data-i18n="home.hero.scroll">Scroll</span>
+        </div>
                     </div>
+    <!-- 2. CONTENT LAYER (Slides over hero) -->
+    <div class="content-layer rounded-t-[3rem] overflow-hidden -mt-10 pt-20 pb-20">
+        
+        <!-- Introduction -->
+        <section class="container mx-auto px-6 py-24">
+            <div class="grid md:grid-cols-2 gap-16 items-start">
+                <div class="reveal-on-scroll">
+                    <h2 class="font-serif text-5xl md:text-7xl text-stone-900 leading-[1.1]">
+                        <span data-i18n="home.intro.title">Crafting legacy from the</span> <span class="italic text-wood-500" data-i18n="home.intro.titleEmphasis">heart</span> <span data-i18n="home.intro.titleSuffix">of the forest.</span>
+                    </h2>
                 </div>
-            </div>
-        </section>
-
-        <!-- Company Overview -->
-        <section id="company-overview" class="py-24 bg-white">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
-                    <div class="section-header fade-in">
-                        <div class="section-subtitle" data-i18n="company.established">EST. 1930s</div>
-                        <h3 class="section-title font-primary" data-i18n="company.title">About Jabwood</h3>
-                        <div class="section-divider"></div>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-2 gap-16 items-center">
-                        <div class="fade-in">
-                            <p class="text-lg text-gray-700 mb-6 leading-relaxed" data-i18n="company.description">
-                                For over 50 years, Jabwood has been a trusted name in the wood industry, providing premium quality hard woods, soft woods, and wood-based panels to customers throughout Lebanon and beyond.
-                            </p>
-                            <p class="text-lg text-gray-700 mb-8 leading-relaxed" data-i18n="company.description2">
-                                Based in Tripoli, Lebanon, we pride ourselves on our commitment to quality, sustainability, and customer satisfaction. Our extensive product range includes everything from exotic hardwoods to engineered wood panels.
-                            </p>
-                            
-                            <!-- Key Features -->
-                            <div class="grid grid-cols-2 gap-4 mb-8">
-                                <div class="flex items-start gap-3">
-                                    <div class="flex-shrink-0 w-8 h-8 bg-forest-green rounded-full flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold text-wood-brown" data-i18n="company.fiftyPlusYears">50+ Years</div>
-                                        <div class="text-sm text-gray-600" data-i18n="company.industryExperience">Industry Experience</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="flex-shrink-0 w-8 h-8 bg-forest-green rounded-full flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold text-wood-brown" data-i18n="company.premiumQuality">Premium Quality</div>
-                                        <div class="text-sm text-gray-600" data-i18n="company.certifiedMaterials">Certified Materials</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="flex-shrink-0 w-8 h-8 bg-forest-green rounded-full flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold text-wood-brown" data-i18n="company.globalReach">Global Reach</div>
-                                        <div class="text-sm text-gray-600" data-i18n="company.middleEastCoverage">Middle East Coverage</div>
-                                    </div>
-                                </div>
-                                <div class="flex items-start gap-3">
-                                    <div class="flex-shrink-0 w-8 h-8 bg-forest-green rounded-full flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
-                                        </svg>
-                                    </div>
-                                    <div>
-                                        <div class="font-semibold text-wood-brown" data-i18n="company.expertTeam">Expert Team</div>
-                                        <div class="text-sm text-gray-600" data-i18n="company.professionalService">Professional Service</div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <a href="about-us.html" class="hero-cta-secondary inline-block" data-i18n="hero.learnAbout">
-                                Read More About Us
-                            </a>
-                        </div>
-                        <div class="fade-in-delay relative">
-                            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="assets/images/general/FACTORY.jpg" alt="Jabwood Factory" class="w-full h-auto image-hover">
-                                <div class="absolute inset-0 bg-gradient-to-t from-wood-dark/60 to-transparent"></div>
-                                <div class="absolute bottom-0 left-0 right-0 p-6 text-white">
-                                    <h4 class="text-2xl font-bold mb-2" data-i18n="company.ourFacility">Our Facility</h4>
-                                    <p class="text-sm opacity-90" data-i18n="company.facilityDesc">State-of-the-art processing & distribution center</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Company Motto Section -->
-        <section class="motto-section">
-            <div class="container mx-auto px-4">
-                <div class="max-w-4xl mx-auto">
-                    <p class="motto-text fade-in" data-i18n="company.motto">
-                        Touch Wood, Buy Wood, From Jabwood
+                <div class="pt-4 reveal-on-scroll delay-200">
+                    <p class="text-xl text-stone-600 leading-relaxed mb-8" data-i18n="home.intro.description">
+                        Since the 1930s, Jabwood has bridged the gap between raw nature and refined architecture. Based in Tripoli, we curate rare hardwoods and sustainable panels for the world's most demanding projects.
                     </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Product Categories -->
-        <section class="py-24 bg-gradient-to-b from-cream to-white">
-            <div class="container mx-auto px-4">
-                <div class="max-w-6xl mx-auto">
-                    <div class="section-header fade-in">
-                        <div class="section-subtitle" data-i18n="about.exploreRange">EXPLORE</div>
-                        <h3 class="section-title" data-i18n="about.ourProductRange">Our Product Range</h3>
-                        <div class="section-divider"></div>
-                        <p class="section-description" data-i18n="about.premiumWoodProducts">Premium wood products for every need</p>
-                    </div>
-                    
-                    <div class="grid md:grid-cols-3 gap-8">
-                        <!-- Hard Woods -->
-                        <div class="premium-card fade-in-delay group">
-                            <div class="text-center">
-                                <div class="w-20 h-20 bg-gradient-to-br from-wood-brown to-wood-dark rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="text-2xl font-bold text-wood-brown mb-4 font-primary" data-i18n="about.hardwoodsTitle">Hard Woods</h4>
-                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="about.hardwoodsDesc">Premium hardwoods including Oak, Teak, Walnut, Cherry, and exotic species from around the world.</p>
-                                <a href="our-products.html#hardwoods" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold group-hover:gap-3 transition-all">
-                                    <span data-i18n="about.viewCollection">View Collection</span> 
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Soft Woods -->
-                        <div class="premium-card fade-in-delay-2 group">
-                            <div class="text-center">
-                                <div class="w-20 h-20 bg-gradient-to-br from-sage-green to-forest-green rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fill-rule="evenodd" d="M5 2a1 1 0 011 1v1h1a1 1 0 010 2H6v1a1 1 0 01-2 0V6H3a1 1 0 010-2h1V3a1 1 0 011-1zm0 10a1 1 0 011 1v1h1a1 1 0 110 2H6v1a1 1 0 11-2 0v-1H3a1 1 0 110-2h1v-1a1 1 0 011-1zM12 2a1 1 0 01.967.744L14.146 7.2 17.5 9.134a1 1 0 010 1.732l-3.354 1.935-1.18 4.455a1 1 0 01-1.933 0L9.854 12.8 6.5 10.866a1 1 0 010-1.732l3.354-1.935 1.18-4.455A1 1 0 0112 2z" clip-rule="evenodd"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="text-2xl font-bold text-wood-brown mb-4 font-primary" data-i18n="about.softwoodsTitle">Soft Woods</h4>
-                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="about.softwoodsDesc">Quality softwoods perfect for construction, including Cedar, Douglas Fir, Redwood, and White Wood.</p>
-                                <a href="our-products.html#softwoods" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold group-hover:gap-3 transition-all">
-                                    <span data-i18n="about.viewCollection">View Collection</span> 
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Wood-Based Panels -->
-                        <div class="premium-card fade-in-delay-3 group">
-                            <div class="text-center">
-                                <div class="w-20 h-20 bg-gradient-to-br from-wood-light to-wood-brown rounded-2xl flex items-center justify-center mx-auto mb-6 transform group-hover:scale-110 group-hover:rotate-3 transition-all duration-300">
-                                    <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"></path>
-                                    </svg>
-                                </div>
-                                <h4 class="text-2xl font-bold text-wood-brown mb-4 font-primary" data-i18n="about.panelsTitle">Wood Panels</h4>
-                                <p class="text-gray-600 mb-6 leading-relaxed" data-i18n="about.panelsDesc">Engineered wood solutions including MDF, Plywood, Blockboard, and Melamine-faced panels.</p>
-                                <a href="our-products.html#panels" class="inline-flex items-center gap-2 text-forest-green hover:text-green-700 font-semibold group-hover:gap-3 transition-all">
-                                    <span data-i18n="about.viewCollection">View Collection</span> 
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                                    </svg>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Chairman Message -->
-        <section class="py-24 bg-white relative overflow-hidden">
-            <div class="absolute top-0 right-0 w-1/3 h-full bg-gradient-to-l from-cream to-transparent opacity-50"></div>
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="max-w-6xl mx-auto">
-                    <div class="grid md:grid-cols-2 gap-16 items-center">
-                        <div class="fade-in relative">
-                            <div class="relative rounded-2xl overflow-hidden shadow-2xl">
-                                <img src="assets/images/general/CHAIRMAN.jpg" alt="Chairman" class="w-full h-auto">
-                                <div class="absolute inset-0 bg-gradient-to-t from-wood-dark/70 via-transparent to-transparent"></div>
-                                <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-                                    <div class="font-semibold text-lg" data-i18n="company.leadership">Leadership</div>
-                                    <div class="text-2xl font-bold font-primary" data-i18n="company.ourChairman">Our Chairman</div>
-                                </div>
-                            </div>
-                            <div class="absolute -bottom-6 -left-6 w-32 h-32 bg-wood-brown/10 rounded-full blur-3xl"></div>
-                            <div class="absolute -top-6 -right-6 w-40 h-40 bg-forest-green/10 rounded-full blur-3xl"></div>
-                        </div>
-                        <div class="fade-in-delay">
-                            <div class="section-subtitle mb-4" data-i18n="company.leadershipTitle">LEADERSHIP</div>
-                            <h3 class="text-4xl font-bold text-wood-brown mb-6 font-primary" data-i18n="company.chairmanMessage">Message from Our Chairman</h3>
-                            <div class="space-y-6">
-                                <p class="text-lg text-gray-700 leading-relaxed italic border-l-4 border-wood-brown pl-6" data-i18n="company.chairmanQuote">
-                                    "For over five decades, Jabwood has been committed to providing the finest quality wood products to our valued customers. Our success is built on trust, quality, and innovation."
-                                </p>
-                                <p class="text-lg text-gray-700 leading-relaxed" data-i18n="company.chairmanPara1">
-                                    We continue to invest in sustainable practices and cutting-edge technology to meet the evolving needs of our customers while preserving our environment for future generations.
-                                </p>
-                                <p class="text-lg text-gray-700 leading-relaxed" data-i18n="company.chairmanPara2">
-                                    From our humble beginnings as a small family lumberyard to becoming one of the leading timber companies in the Middle East, our journey has been guided by unwavering dedication to excellence and customer satisfaction.
-                                </p>
-                            </div>
-                            <div class="mt-8 pt-8 border-t border-gray-200">
-                                <div class="flex items-center gap-4">
-                                    <div class="flex-shrink-0">
-                                        <div class="w-16 h-1 bg-gradient-to-r from-wood-brown to-wood-dark"></div>
-                                    </div>
+                    <div class="h-px w-full bg-stone-200 mb-8"></div>
+                    <div class="flex gap-12">
                                     <div>
-                                        <div class="font-bold text-wood-brown" data-i18n="company.jabadoFamily">Jabado Family</div>
-                                        <div class="text-sm text-gray-600" data-i18n="company.leadershipTeam">Leadership Team</div>
-                                    </div>
-                                </div>
-                            </div>
+                            <span class="block text-4xl font-serif text-stone-900">50+</span>
+                            <span class="text-sm text-stone-500 uppercase tracking-widest" data-i18n="home.intro.years">Years</span>
+                        </div>
+                        <div>
+                            <span class="block text-4xl font-serif text-stone-900">400k</span>
+                            <span class="text-sm text-stone-500 uppercase tracking-widest" data-i18n="home.intro.cbmVolume">CBM Volume</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-
-        <!-- Call to Action Section -->
-        <section class="py-20 bg-gradient-to-br from-forest-green to-sage-green relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-                <div class="wood-grain-texture w-full h-full"></div>
-            </div>
-            <div class="container mx-auto px-4 relative z-10">
-                <div class="max-w-4xl mx-auto text-center text-white">
-                    <h3 class="text-4xl md:text-5xl font-bold mb-6 font-primary fade-in" data-i18n="company.readyToStart">Ready to Start Your Project?</h3>
-                    <p class="text-xl mb-10 opacity-90 fade-in-delay" data-i18n="company.getInTouch">
-                        Get in touch with our expert team to discuss your wood requirements and receive personalized recommendations.
-                    </p>
-                    <div class="flex flex-col sm:flex-row gap-4 justify-center fade-in-delay-2">
-                        <a href="contact.html" class="bg-white text-forest-green px-8 py-4 rounded-xl hover:bg-cream transition-all font-semibold text-lg hover:scale-105 transform">
-                            <span data-i18n="company.contactUsToday">Contact Us Today</span>
-                        </a>
-                        <a href="our-products.html" class="border-2 border-white text-white px-8 py-4 rounded-xl hover:bg-white hover:text-forest-green transition-all font-semibold text-lg hover:scale-105 transform">
-                            <span data-i18n="company.browseProducts">Browse Products</span>
-                        </a>
-                    </div>
+        <!-- Marquee -->
+        <div class="py-12 bg-wood-500 text-stone-900 border-y border-stone-900 overflow-hidden">
+            <div class="marquee-container">
+                <div class="marquee-content font-serif text-5xl italic px-4">
+                    Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash; Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash;
+                </div>
+                <div class="marquee-content font-serif text-5xl italic px-4">
+                    Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash; Oak &mdash; Walnut &mdash; Teak &mdash; Pine &mdash; Mahogany &mdash; Cedar &mdash;
                 </div>
             </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-wood-dark text-white py-12">
-        <div class="container mx-auto px-4">
-            <div class="max-w-6xl mx-auto">
-                <div class="grid md:grid-cols-3 gap-8">
-                    <div>
-                        <div class="flex items-center space-x-3 mb-4">
-                            <img src="assets/images/general/hdr-logo.jpg" alt="Jabwood Logo" class="h-10 w-auto">
-                            <h4 class="text-xl font-bold">Jabwood</h4>
-                        </div>
-                        <p class="text-gray-300 mb-4" data-i18n="footer.tagline">
-                            50+ years of excellence in premium wood products from Tripoli, Lebanon.
-                        </p>
-                    </div>
-                    
-                    <div>
-                        <h5 class="text-lg font-semibold mb-4" data-i18n="common.quickLinks">Quick Links</h5>
-                        <ul class="space-y-2">
-                            <li><a href="about-us.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="nav.about">About Us</a></li>
-                            <li><a href="our-products.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="nav.products">Our Products</a></li>
-                            <li><a href="branches.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="nav.branches">Branches</a></li>
-                            <li><a href="contact.html" class="text-gray-300 hover:text-white transition-colors" data-i18n="nav.contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div>
-                        <h5 class="text-lg font-semibold mb-4" data-i18n="contact.title">Contact Info</h5>
-                        <p class="text-gray-300 mb-2" data-i18n="contact.address">Tripoli, Lebanon</p>
-                        <p class="text-gray-300" data-i18n="footer.tagline">50+ Years of Excellence</p>
-                    </div>
-                </div>
+        </div>
+        <!-- The Bento Collection -->
+        <section class="container mx-auto px-6 py-32">
+            <div class="flex justify-between items-end mb-16 reveal-on-scroll">
+                <h3 class="text-xs font-bold uppercase tracking-widest text-wood-600" data-i18n="home.catalog.title">Our Catalog</h3>
+                <a href="our-products.html" class="text-stone-900 border-b border-stone-900 pb-1 hover:text-wood-500 hover:border-wood-500 transition-colors hover-trigger" data-i18n="home.catalog.viewFullRange">View Full Range</a>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-[500px]">
                 
-                <div class="border-t border-gray-600 mt-8 pt-8 text-center">
-                    <p class="text-gray-300" data-i18n="footer.rights">&copy; 2024 Jabwood. All rights reserved.</p>
+                <!-- Card 1: Hardwoods (Tall) -->
+                <div class="lg:col-span-1 lg:row-span-2 group relative rounded-2xl overflow-hidden cursor-none hover-trigger reveal-on-scroll">
+                    <div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    <div class="parallax-img-wrapper w-full h-full">
+                        <img src="assets/images/products/hardwoods/Teak.jpg" class="parallax-img" alt="Hardwood">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20">
+                        <span class="block text-white/70 text-sm mb-2 uppercase tracking-widest">01</span>
+                        <h4 class="text-4xl font-serif text-white italic group-hover:translate-x-4 transition-transform duration-500" data-i18n="home.catalog.hardwoods">Hard Woods</h4>
+                            </div>
+                        </div>
+                <!-- Card 2: Softwoods (Wide) -->
+                <div class="lg:col-span-2 group relative rounded-2xl overflow-hidden cursor-none hover-trigger reveal-on-scroll delay-100">
+                    <div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    <div class="parallax-img-wrapper w-full h-full">
+                        <img src="assets/images/products/softwoods/Cedar.jpg" class="parallax-img" alt="Softwood">
+                                </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20">
+                        <span class="block text-white/70 text-sm mb-2 uppercase tracking-widest">02</span>
+                        <h4 class="text-4xl font-serif text-white italic group-hover:translate-x-4 transition-transform duration-500" data-i18n="home.catalog.softwoods">Soft Woods & Framing</h4>
+                    </div>
+                </div>
+                <!-- Card 3: Panels -->
+                <div class="lg:col-span-1 group relative rounded-2xl overflow-hidden cursor-none hover-trigger reveal-on-scroll delay-200">
+                    <div class="absolute inset-0 bg-black/20 z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                    <div class="parallax-img-wrapper w-full h-full">
+                        <img src="assets/images/products/panels/Plywood.jpg" class="parallax-img" alt="Panels">
+            </div>
+                    <div class="absolute bottom-0 left-0 p-8 z-20">
+                        <span class="block text-white/70 text-sm mb-2 uppercase tracking-widest">03</span>
+                        <h4 class="text-4xl font-serif text-white italic group-hover:translate-x-4 transition-transform duration-500" data-i18n="home.catalog.panels">Engineered Panels</h4>
+                    </div>
+                </div>
+                <!-- Card 4: Dark/Text -->
+                <div class="lg:col-span-1 bg-wood-900 rounded-2xl p-10 flex flex-col justify-between text-wood-100 reveal-on-scroll delay-300">
+                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#c68e17" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                    <div>
+                        <h4 class="text-3xl font-serif mb-4" data-i18n="home.catalog.customOrders">Custom Orders</h4>
+                        <p class="text-white/60 text-sm leading-relaxed mb-8" data-i18n="home.catalog.customOrdersDesc">
+                            Need specific dimensions or rare species? Our Tripoli facility handles bespoke requests for large-scale construction.
+                        </p>
+                        <a href="contact.html" class="inline-flex items-center gap-2 text-wood-500 hover:text-white transition-colors hover-trigger">
+                            <span data-i18n="home.catalog.contactUs">Contact Us</span> <span class="text-xl">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Video / Immersive Section -->
+        <section id="video-reel" class="relative h-[80vh] w-full overflow-hidden reveal-on-scroll">
+            <div class="absolute inset-0">
+                <img src="assets/images/general/FACTORY.jpg" class="w-full h-full object-cover" alt="Workshop Detail">
+                <div class="absolute inset-0 bg-black/40"></div>
+                        </div>
+            <div class="relative z-10 h-full flex flex-col items-center justify-center text-center px-4">
+                <h3 class="font-serif text-5xl md:text-8xl text-white mb-6" data-i18n="home.precision.title">Precision.</h3>
+                <p class="text-white/80 max-w-lg mx-auto text-lg mb-10" data-i18n="home.precision.description">
+                    State-of-the-art machinery meets traditional craftsmanship in our Lebanese facilities.
+                </p>
+                <button class="bg-white/10 backdrop-blur border border-white/20 text-white px-8 py-3 rounded-full hover:bg-white hover:text-black transition-all hover-trigger" aria-label="Watch The Process" style="-webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);" data-i18n="home.precision.watchProcess">
+                    Watch The Process
+                </button>
+            </div>
+        </section>
+        <!-- Spacer for Footer Reveal -->
+        <div class="h-[20vh] bg-stone-50"></div>
+    </div>
+    <!-- 3. FOOTER (Revealed on Scroll) -->
+    <footer class="footer-sticky">
+        <div class="container mx-auto px-6 text-center">
+            <div class="mb-12">
+                <h2 class="text-[15vw] leading-none font-serif text-wood-500/20 select-none" translate="no">JABWOOD</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8 text-stone-400 text-sm">
+                <div class="text-center md:text-left">
+                    <h5 class="text-white font-bold uppercase tracking-widest mb-4" data-i18n="home.footer.visitUs">Visit Us</h5>
+                    <p data-i18n="home.footer.tripoliLebanon">Tripoli, Lebanon</p>
+                    <p data-i18n="home.footer.address">Main Highway, Wood District</p>
+                    <p class="mt-2" data-i18n="home.footer.phone">+961 6 000 000</p>
+                    </div>
+                <div class="flex flex-col gap-2">
+                    <a href="index.html" class="hover:text-wood-500 transition-colors hover-trigger" data-i18n="nav.home">Home</a>
+                    <a href="our-products.html" class="hover:text-wood-500 transition-colors hover-trigger" data-i18n="nav.products">Products</a>
+                    <a href="about-us.html" class="hover:text-wood-500 transition-colors hover-trigger" data-i18n="nav.about">About</a>
+                    <a href="contact.html" class="hover:text-wood-500 transition-colors hover-trigger" data-i18n="nav.contact">Contact</a>
+                    </div>
+                <div class="text-center md:text-right">
+                    <p><span data-i18n="home.footer.copyright">&copy; 2025</span> <span translate="no">Jabwood.</span></p>
+                    <p data-i18n="home.footer.allRights">All Rights Reserved.</p>
+                    <div class="flex justify-center md:justify-end gap-4 mt-4">
+                        <a href="#" class="hover:text-white transition-colors hover-trigger" aria-label="Instagram">
+                            <i class="fab fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition-colors hover-trigger" aria-label="Facebook">
+                            <i class="fab fa-facebook-f text-xl"></i>
+                        </a>
+                        <a href="#" class="hover:text-white transition-colors hover-trigger" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in text-xl"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     </footer>
-
+    
     <!-- JavaScript -->
     <script src="js/i18n.js"></script>
     <script src="js/main.js"></script>

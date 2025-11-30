@@ -407,6 +407,7 @@ main {
     padding: 2.5rem 1.5rem;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(245, 245, 220, 0.9) 100%);
     border-radius: 16px;
+    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.5);
     transition: all 0.3s ease;
@@ -1178,3 +1179,238 @@ body.modal-open {
         color: black !important;
     }
 }
+
+/* ==========================
+   NEW DESIGN STYLES
+   ========================== */
+
+/* --- CORE STYLES & RESET --- */
+body {
+    cursor: none; /* Hide default cursor for custom one */
+    overflow-x: hidden;
+    background-color: #f9f9f9;
+}
+
+/* Smooth Scroll Behavior */
+html {
+    scroll-behavior: smooth;
+}
+::selection {
+    background-color: #c68e17;
+    color: #fff;
+}
+
+/* --- CUSTOM CURSOR --- */
+.cursor-dot,
+.cursor-outline {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 9999;
+    pointer-events: none;
+}
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #c68e17;
+}
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(198, 142, 23, 0.5);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+}
+
+/* Hover State for Cursor */
+body.hovering .cursor-outline {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(198, 142, 23, 0.1);
+    border-color: transparent;
+}
+
+/* --- CURTAIN LOADER --- */
+.curtain-panel {
+    position: fixed;
+    top: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: #0c0c0c;
+    z-index: 100;
+    transition: transform 1.5s cubic-bezier(0.77, 0, 0.175, 1);
+}
+.curtain-left { left: 0; transform-origin: left; }
+.curtain-right { right: 0; transform-origin: right; }
+
+.loader-text {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 101;
+    color: white;
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    overflow: hidden;
+    transition: opacity 0.5s ease;
+}
+
+body.loaded .curtain-left { transform: translateX(-100%); }
+body.loaded .curtain-right { transform: translateX(100%); }
+body.loaded .loader-text { opacity: 0; pointer-events: none; }
+
+/* --- WEBFLOW-STYLE ANIMATIONS --- */
+
+/* Text Reveal (Slide Up) */
+.reveal-text {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+.reveal-text span {
+    display: block;
+    transform: translateY(100%);
+    transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.is-visible .reveal-text span {
+    transform: translateY(0);
+}
+
+/* Image Parallax & Scale */
+.parallax-img-wrapper {
+    overflow: hidden;
+}
+.parallax-img {
+    transform: scale(1.2);
+    transition: transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.is-visible .parallax-img {
+    transform: scale(1);
+}
+
+/* Hero Sticky Effect */
+.hero-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 5; /* Lower than content (20) but higher than footer (0) initially */
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ensure hero content is properly centered */
+#hero-section .relative.z-10 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 2rem 0;
+    position: relative;
+}
+
+/* Hero Stats Styling - Make them prominent and centered */
+#hero-stats {
+    position: relative;
+    z-index: 10;
+    margin: 2rem 0;
+}
+
+#hero-stats .text-center > div:first-child {
+    text-shadow: 0 4px 20px rgba(0,0,0,0.7), 0 0 30px rgba(0,0,0,0.3);
+    filter: drop-shadow(0 4px 8px rgba(0,0,0,0.5));
+}
+
+#hero-stats .text-center > div:last-child {
+    text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+}
+
+/* Make stats more visible on mobile */
+@media (max-width: 768px) {
+    #hero-stats {
+        margin: 1.5rem 0;
+        gap: 1.5rem !important;
+    }
+    
+    #hero-stats .text-center > div:first-child {
+        font-size: 3.5rem !important;
+    }
+}
+
+/* Content Overlay (goes over hero) */
+.content-layer {
+    position: relative;
+    z-index: 20; /* Highest layer */
+    background-color: #f9f9f9;
+    margin-bottom: 80vh; /* Space for footer reveal */
+    box-shadow: 0 4px 30px rgba(0,0,0,0.1);
+}
+
+/* Footer Reveal Effect */
+.footer-sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80vh;
+    z-index: 0; /* Lowest layer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #0c0c0c;
+}
+
+/* Grain Overlay */
+.grain {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 9998;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Marquee */
+.marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+}
+.marquee-content {
+    display: inline-block;
+    animation: marquee 30s linear infinite;
+}
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Navigation Glass */
+.nav-glass {
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+.nav-glass.scrolled {
+    background: rgba(255, 255, 255, 0.8);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.nav-glass.scrolled .nav-link { color: #0c0c0c; }
+.nav-glass.scrolled .nav-logo { filter: invert(0); } /* Assuming white logo initially */
+
+/* Scroll Reveal Styles */
+.reveal-on-scroll.is-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+.reveal-on-scroll.delay-100 { transition-delay: 0.1s; }
+.reveal-on-scroll.delay-200 { transition-delay: 0.2s; }
+.reveal-on-scroll.delay-300 { transition-delay: 0.3s; }

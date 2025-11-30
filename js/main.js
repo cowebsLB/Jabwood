@@ -325,3 +325,228 @@ function initPremiumCardAnimations() {
 document.addEventListener('DOMContentLoaded', function() {
     initPremiumCardAnimations();
 });
+
+// ==========================
+// NEW DESIGN INTERACTIONS
+// ==========================
+
+// 1. CURTAIN LOADER
+window.addEventListener('load', () => {
+    const word = document.getElementById('loader-word');
+    const text = document.getElementById('loader-text');
+    
+    if (!word || !text) return;
+    
+    // Text Slide Up
+    word.classList.remove('translate-y-full');
+    
+    setTimeout(() => {
+        document.body.classList.add('loaded');
+        
+        // Trigger Hero Text Reveal after loader
+        setTimeout(() => {
+            document.querySelectorAll('.hero-sticky .reveal-text').forEach(el => {
+                el.classList.add('is-visible');
+            });
+            const heroCta = document.getElementById('hero-cta');
+            if (heroCta) {
+                heroCta.classList.remove('opacity-0', 'translate-y-10');
+            }
+            const heroStats = document.getElementById('hero-stats');
+            if (heroStats) {
+                heroStats.classList.remove('opacity-0', 'translate-y-10');
+                heroStats.classList.add('opacity-100');
+            }
+        }, 800);
+        
+    }, 1800);
+});
+
+// 2. CUSTOM CURSOR
+document.addEventListener('DOMContentLoaded', () => {
+    const cursorDot = document.getElementById('cursor-dot');
+    const cursorOutline = document.getElementById('cursor-outline');
+    
+    if (!cursorDot || !cursorOutline) return;
+    
+    window.addEventListener('mousemove', (e) => {
+        const posX = e.clientX;
+        const posY = e.clientY;
+        
+        cursorDot.style.left = `${posX}px`;
+        cursorDot.style.top = `${posY}px`;
+        
+        // Outline follows with slight delay (animation handled by CSS transition)
+        cursorOutline.animate({
+            left: `${posX}px`,
+            top: `${posY}px`
+        }, { duration: 500, fill: "forwards" });
+    });
+    
+    // Hover Interactions
+    const triggers = document.querySelectorAll('.hover-trigger');
+    triggers.forEach(trigger => {
+        trigger.addEventListener('mouseenter', () => {
+            document.body.classList.add('hovering');
+        });
+        trigger.addEventListener('mouseleave', () => {
+            document.body.classList.remove('hovering');
+        });
+    });
+});
+
+// 3. SCROLL REVEAL OBSERVER
+document.addEventListener('DOMContentLoaded', () => {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+            }
+        });
+    }, { threshold: 0.15 });
+    
+    document.querySelectorAll('.reveal-on-scroll').forEach(el => {
+        el.classList.add('opacity-0', 'translate-y-12', 'transition-all', 'duration-1000');
+        revealObserver.observe(el);
+    });
+});
+
+// 4. PARALLAX EFFECT FOR HERO
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    const heroBg = document.getElementById('hero-bg');
+    const navbar = document.getElementById('navbar');
+    const heroSection = document.getElementById('hero-section');
+    
+    // Hero Parallax (Move slower than scroll)
+    if (heroBg && scrollY < window.innerHeight) {
+        heroBg.style.transform = `scale(1.1) translateY(${scrollY * 0.5}px)`;
+    }
+    
+    // Z-Index Trick:
+    // If we scroll past the hero, set its z-index lower than footer
+    // so that when content slides up at the end, the footer (z-0) is visible, not the hero (z-5)
+    if (heroSection) {
+        if (scrollY > window.innerHeight) {
+            heroSection.style.zIndex = '-1';
+        } else {
+            heroSection.style.zIndex = '5';
+        }
+    }
+    
+    // Navbar Change
+    if (navbar) {
+        if (scrollY > 50) {
+            navbar.classList.add('scrolled');
+            navbar.querySelectorAll('.nav-link').forEach(el => {
+                // Only change color if mobile menu is NOT open
+                const mobileMenu = document.getElementById('mobile-menu');
+                if (!mobileMenu || !mobileMenu.classList.contains('translate-x-0')) {
+                    el.classList.remove('text-white', 'text-white/80');
+                    el.classList.add('text-stone-900', 'text-stone-600');
+                }
+            });
+        } else {
+            navbar.classList.remove('scrolled');
+            navbar.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.add('text-white', 'text-white/80');
+                el.classList.remove('text-stone-900', 'text-stone-600');
+            });
+        }
+    }
+});
+
+// 5. MOBILE MENU TOGGLE (New Design)
+document.addEventListener('DOMContentLoaded', () => {
+    const mobileBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const hamburgerIcon = document.getElementById('hamburger-icon');
+    const closeIcon = document.getElementById('close-icon');
+    const mobileLinks = document.querySelectorAll('.mobile-link span');
+    
+    if (!mobileBtn || !mobileMenu) return;
+    
+    let isMenuOpen = false;
+    mobileBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        
+        if (isMenuOpen) {
+            // Open Menu
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            
+            // Icon Animation
+            if (hamburgerIcon) hamburgerIcon.classList.add('opacity-0');
+            if (closeIcon) closeIcon.classList.remove('opacity-0');
+            
+            // Text Stagger Animation
+            setTimeout(() => {
+                mobileLinks.forEach(span => {
+                    span.classList.remove('translate-y-full');
+                    span.classList.add('translate-y-0');
+                });
+            }, 300);
+            
+            // Ensure nav text stays white on dark overlay
+            document.querySelectorAll('.nav-link').forEach(el => {
+                el.classList.add('text-white');
+                el.classList.remove('text-stone-900');
+            });
+        } else {
+            // Close Menu
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            
+            // Icon Animation
+            if (hamburgerIcon) hamburgerIcon.classList.remove('opacity-0');
+            if (closeIcon) closeIcon.classList.add('opacity-0');
+            
+            // Reset Text Positions
+            mobileLinks.forEach(span => {
+                span.classList.add('translate-y-full');
+                span.classList.remove('translate-y-0');
+            });
+            
+            // Revert nav colors if scrolled
+            if (window.scrollY > 50) {
+                document.querySelectorAll('.nav-link').forEach(el => {
+                    el.classList.remove('text-white');
+                    el.classList.add('text-stone-900');
+                });
+            }
+        }
+    });
+});
+
+// 6. LANGUAGE SWITCH BUTTONS (Fallback - i18n.js handles this primarily)
+document.addEventListener('DOMContentLoaded', () => {
+    const desktopLangBtn = document.getElementById('desktop-language-switch');
+    const mobileLangBtn = document.getElementById('language-switch');
+    
+    // If i18n.js handles this, these will be overridden, but we provide fallback
+    const toggleLanguage = () => {
+        const currentLang = document.documentElement.lang || 'en';
+        const newLang = currentLang === 'en' ? 'ar' : 'en';
+        document.documentElement.lang = newLang;
+        
+        // Update button text
+        const langText = newLang === 'ar' ? 'English' : 'العربية';
+        if (desktopLangBtn) {
+            const textSpan = desktopLangBtn.querySelector('#desktop-language-text');
+            if (textSpan) textSpan.textContent = langText;
+        }
+        if (mobileLangBtn) {
+            const textSpan = mobileLangBtn.querySelector('#language-text');
+            if (textSpan) textSpan.textContent = langText;
+        }
+    };
+    
+    // Only add listeners if i18n.js hasn't already set them up
+    // The i18n.js will override these, so this is just a fallback
+    if (desktopLangBtn && !desktopLangBtn.hasAttribute('data-i18n-bound')) {
+        desktopLangBtn.addEventListener('click', toggleLanguage);
+    }
+    if (mobileLangBtn && !mobileLangBtn.hasAttribute('data-i18n-bound')) {
+        mobileLangBtn.addEventListener('click', toggleLanguage);
+    }
+});
